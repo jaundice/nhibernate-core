@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.Serialization;
+using System.Security;
 using System.Security.Permissions;
 using NHibernate.Impl;
 
@@ -87,7 +88,7 @@ namespace NHibernate
 		/// The <see cref="StreamingContext"/> that contains contextual information about the source or destination.
 		/// </param>
 		[SecurityPermission(SecurityAction.LinkDemand,
-			Flags=SecurityPermissionFlag.SerializationFormatter)]
+			Flags=SecurityPermissionFlag.SerializationFormatter), SecurityCritical]
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			base.GetObjectData(info, context);

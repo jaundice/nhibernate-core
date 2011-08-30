@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Runtime.Serialization;
+using System.Security;
 using System.Text;
 using System.Linq;
 using Iesi.Collections.Generic;
@@ -391,7 +392,7 @@ namespace NHibernate.Impl
 		}
 
 		#region IObjectReference Members
-
+        [SecurityCritical]
 		public object GetRealObject(StreamingContext context)
 		{
 			// the SessionFactory that was serialized only has values in the properties

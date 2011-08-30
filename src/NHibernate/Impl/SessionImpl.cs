@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
+using System.Security;
 using System.Security.Permissions;
 using Iesi.Collections;
 
@@ -132,7 +133,7 @@ namespace NHibernate.Impl
 		/// this method should be in synch with the attributes for easy readability.
 		/// </remarks>
 		[SecurityPermission(SecurityAction.LinkDemand,
-			Flags = SecurityPermissionFlag.SerializationFormatter)]
+			Flags = SecurityPermissionFlag.SerializationFormatter), SecurityCritical]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			log.Debug("writting session to serializer");

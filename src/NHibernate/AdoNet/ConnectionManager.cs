@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Runtime.Serialization;
+using System.Security;
 using System.Security.Permissions;
 
 using NHibernate.Engine;
@@ -293,7 +294,7 @@ namespace NHibernate.AdoNet
 		}
 
 		[SecurityPermission(SecurityAction.LinkDemand,
-			Flags = SecurityPermissionFlag.SerializationFormatter)]
+			Flags = SecurityPermissionFlag.SerializationFormatter), SecurityCritical]
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("ownConnection", ownConnection);
