@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39CA684F-B0DC-420B-AA65-4B80EEAE6FE3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NHibernateClient</RootNamespace>
+    <AssemblyName>NHibernateClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\NHibernate.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\NHibernateClient.Silverlight\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\AbstractCriterion.cs">
+      <Link>Criterion\AbstractCriterion.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\AbstractEmptinessExpression.cs">
+      <Link>Criterion\AbstractEmptinessExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\AggregateProjection.cs">
+      <Link>Criterion\AggregateProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\AliasedProjection.cs">
+      <Link>Criterion\AliasedProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\AndExpression.cs">
+      <Link>Criterion\AndExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\AvgProjection.cs">
+      <Link>Criterion\AvgProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\BetweenExpression.cs">
+      <Link>Criterion\BetweenExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\ConditionalProjection.cs">
+      <Link>Criterion\ConditionalProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Conjunction.cs">
+      <Link>Criterion\Conjunction.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\ConstantProjection.cs">
+      <Link>Criterion\ConstantProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\CountProjection.cs">
+      <Link>Criterion\CountProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\CriteriaSpecification.cs">
+      <Link>Criterion\CriteriaSpecification.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\DetachedCriteria.cs">
+      <Link>Criterion\DetachedCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Disjunction.cs">
+      <Link>Criterion\Disjunction.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Distinct.cs">
+      <Link>Criterion\Distinct.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\EqPropertyExpression.cs">
+      <Link>Criterion\EqPropertyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\ExistsSubqueryExpression.cs">
+      <Link>Criterion\ExistsSubqueryExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Expression.cs">
+      <Link>Criterion\Expression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\GePropertyExpression.cs">
+      <Link>Criterion\GePropertyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\GroupedProjection.cs">
+      <Link>Criterion\GroupedProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\GtPropertyExpression.cs">
+      <Link>Criterion\GtPropertyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\HibernateException.cs">
+      <Link>Criterion\HibernateException.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\ICriteriaQuery.cs">
+      <Link>Criterion\ICriteriaQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\ICriterion.cs">
+      <Link>Criterion\ICriterion.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\IdentifierEqExpression.cs">
+      <Link>Criterion\IdentifierEqExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\IdentifierProjection.cs">
+      <Link>Criterion\IdentifierProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\InExpression.cs">
+      <Link>Criterion\InExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\InsensitiveLikeExpression.cs">
+      <Link>Criterion\InsensitiveLikeExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\IProjection.cs">
+      <Link>Criterion\IProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\IPropertyProjection.cs">
+      <Link>Criterion\IPropertyProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\IsEmptyExpression.cs">
+      <Link>Criterion\IsEmptyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\IsNotEmptyExpression.cs">
+      <Link>Criterion\IsNotEmptyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Junction.cs">
+      <Link>Criterion\Junction.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\LambdaNaturalIdentifierBuilder.cs">
+      <Link>Criterion\Lambda\LambdaNaturalIdentifierBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\LambdaRestrictionBuilder.cs">
+      <Link>Criterion\Lambda\LambdaRestrictionBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\LambdaSubqueryBuilder.cs">
+      <Link>Criterion\Lambda\LambdaSubqueryBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverFetchBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverFetchBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverJoinBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverJoinBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverLockBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverLockBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverOrderBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverOrderBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverProjectionBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverProjectionBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverRestrictionBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverRestrictionBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverSubqueryBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverSubqueryBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Lambda\QueryOverSubqueryPropertyBuilder.cs">
+      <Link>Criterion\Lambda\QueryOverSubqueryPropertyBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\LePropertyExpression.cs">
+      <Link>Criterion\LePropertyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\LikeExpression.cs">
+      <Link>Criterion\LikeExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\LogicalExpression.cs">
+      <Link>Criterion\LogicalExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\LtPropertyExpression.cs">
+      <Link>Criterion\LtPropertyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\MatchMode.cs">
+      <Link>Criterion\MatchMode.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\NaturalIdentifier.cs">
+      <Link>Criterion\NaturalIdentifier.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\NotExpression.cs">
+      <Link>Criterion\NotExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\NotNullExpression.cs">
+      <Link>Criterion\NotNullExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\NullExpression.cs">
+      <Link>Criterion\NullExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\NullSubqueryExpression.cs">
+      <Link>Criterion\NullSubqueryExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Order.cs">
+      <Link>Criterion\Order.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\OrExpression.cs">
+      <Link>Criterion\OrExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\ProjectionList.cs">
+      <Link>Criterion\ProjectionList.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Projections.cs">
+      <Link>Criterion\Projections.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\ProjectionsExtensions.cs">
+      <Link>Criterion\ProjectionsExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Property.cs">
+      <Link>Criterion\Property.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\PropertyExpression.cs">
+      <Link>Criterion\PropertyExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\PropertyProjection.cs">
+      <Link>Criterion\PropertyProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\PropertySubqueryExpression.cs">
+      <Link>Criterion\PropertySubqueryExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\QueryOver.cs">
+      <Link>Criterion\QueryOver.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\QueryOverBuilderExtensions.cs">
+      <Link>Criterion\QueryOverBuilderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Restrictions.cs">
+      <Link>Criterion\Restrictions.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\RestrictionsExtensions.cs">
+      <Link>Criterion\RestrictionsExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\RowCountInt64Projection.cs">
+      <Link>Criterion\RowCountInt64Projection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\RowCountProjection.cs">
+      <Link>Criterion\RowCountProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\SelectSubqueryExpression.cs">
+      <Link>Criterion\SelectSubqueryExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\SimpleExpression.cs">
+      <Link>Criterion\SimpleExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\SimpleProjection.cs">
+      <Link>Criterion\SimpleProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\SimpleSubqueryExpression.cs">
+      <Link>Criterion\SimpleSubqueryExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\SQLProjection.cs">
+      <Link>Criterion\SQLProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\Subqueries.cs">
+      <Link>Criterion\Subqueries.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\SubqueryExpression.cs">
+      <Link>Criterion\SubqueryExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Criterion\SubqueryProjection.cs">
+      <Link>Criterion\SubqueryProjection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Engine\NamedParameterDescriptor.cs">
+      <Link>Engine\NamedParameterDescriptor.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Engine\OrdinalParameterDescriptor.cs">
+      <Link>Engine\OrdinalParameterDescriptor.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Engine\ParameterMetadata.cs">
+      <Link>Engine\ParameterMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Engine\RowSelection.cs">
+      <Link>Engine\RowSelection.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\FetchMode.cs">
+      <Link>FetchMode.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\ICriteria.cs">
+      <Link>ICriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\IFutureValue.cs">
+      <Link>IFutureValue.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Impl\AbstractQueryImpl.cs">
+      <Link>Impl\AbstractQueryImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Impl\CriteriaImpl.cs">
+      <Link>Impl\CriteriaImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Impl\ExpressionProcessor.cs">
+      <Link>Impl\ExpressionProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Impl\TypeWrapper.cs">
+      <Link>Impl\TypeWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\IQuery.cs">
+      <Link>IQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\IQueryOver.cs">
+      <Link>IQueryOver.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\JoinType.cs">
+      <Link>JoinType.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\LockMode.cs">
+      <Link>LockMode.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Parameter.cs">
+      <Link>Parameter.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\QueryParameters.cs">
+      <Link>QueryParameters.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Transform\AliasToEntityMapResultTransformer.cs">
+      <Link>Transform\AliasToEntityMapResultTransformer.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Transform\DistinctRootEntityResultTransformer.cs">
+      <Link>Transform\DistinctRootEntityResultTransformer.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Transform\IResultTransformer.cs">
+      <Link>Transform\IResultTransformer.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Transform\PassThroughResultTransformer.cs">
+      <Link>Transform\PassThroughResultTransformer.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Transform\RootEntityResultTransformer.cs">
+      <Link>Transform\RootEntityResultTransformer.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Util\ArrayHelper.cs">
+      <Link>Util\ArrayHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Util\AssemblyQualifiedTypeName.cs">
+      <Link>Util\AssemblyQualifiedTypeName.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Util\NHibernateUtil.cs">
+      <Link>Util\NHibernateUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Util\StringHelper.cs">
+      <Link>Util\StringHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Util\StringTokenizer.cs">
+      <Link>Util\StringTokenizer.cs</Link>
+    </Compile>
+    <Compile Include="..\NHibernateClient.Silverlight\Util\TypeNameParser.cs">
+      <Link>Util\TypeNameParser.cs</Link>
+    </Compile>
+    <Compile Include="Conversion\Converter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iesi.Collections\Iesi.Collections.csproj">
+      <Project>{4C251E3E-6EA1-4A51-BBCB-F9C42AE55344}</Project>
+      <Name>Iesi.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernate\NHibernate.csproj">
+      <Project>{5909BFE7-93CF-4E5F-BE22-6293368AF01D}</Project>
+      <Name>NHibernate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\NHibernate.snk">
+      <Link>NHibernate.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

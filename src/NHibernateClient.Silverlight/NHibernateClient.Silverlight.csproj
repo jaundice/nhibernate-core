@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9784C41A-F559-4B06-BF15-CC1F481BE2F5}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NHibernateClient</RootNamespace>
+    <AssemblyName>NHibernateClient</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\NHibernate.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Criterion\AbstractCriterion.cs" />
+    <Compile Include="Criterion\AbstractEmptinessExpression.cs" />
+    <Compile Include="Criterion\AggregateProjection.cs" />
+    <Compile Include="Criterion\AliasedProjection.cs" />
+    <Compile Include="Criterion\AndExpression.cs" />
+    <Compile Include="Criterion\AvgProjection.cs" />
+    <Compile Include="Criterion\BetweenExpression.cs" />
+    <Compile Include="Criterion\ConditionalProjection.cs" />
+    <Compile Include="Criterion\Conjunction.cs" />
+    <Compile Include="Criterion\ConstantProjection.cs" />
+    <Compile Include="Criterion\CountProjection.cs" />
+    <Compile Include="Criterion\CriteriaSpecification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Criterion\DetachedCriteria.cs" />
+    <Compile Include="Criterion\Disjunction.cs" />
+    <Compile Include="Criterion\Distinct.cs" />
+    <Compile Include="Criterion\EqPropertyExpression.cs" />
+    <Compile Include="Criterion\ExistsSubqueryExpression.cs" />
+    <Compile Include="Criterion\Expression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Criterion\GePropertyExpression.cs" />
+    <Compile Include="Criterion\GroupedProjection.cs" />
+    <Compile Include="Criterion\GtPropertyExpression.cs" />
+    <Compile Include="Criterion\HibernateException.cs" />
+    <Compile Include="Criterion\ICriteriaQuery.cs" />
+    <Compile Include="Criterion\ICriterion.cs" />
+    <Compile Include="Criterion\IdentifierEqExpression.cs" />
+    <Compile Include="Criterion\IdentifierProjection.cs" />
+    <Compile Include="Criterion\InExpression.cs" />
+    <Compile Include="Criterion\InsensitiveLikeExpression.cs" />
+    <Compile Include="Criterion\IProjection.cs" />
+    <Compile Include="Criterion\IPropertyProjection.cs" />
+    <Compile Include="Criterion\IsEmptyExpression.cs" />
+    <Compile Include="Criterion\IsNotEmptyExpression.cs" />
+    <Compile Include="Criterion\Junction.cs" />
+    <Compile Include="Criterion\Lambda\LambdaNaturalIdentifierBuilder.cs" />
+    <Compile Include="Criterion\Lambda\LambdaRestrictionBuilder.cs" />
+    <Compile Include="Criterion\Lambda\LambdaSubqueryBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverFetchBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverJoinBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverLockBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverOrderBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverProjectionBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverRestrictionBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverSubqueryBuilder.cs" />
+    <Compile Include="Criterion\Lambda\QueryOverSubqueryPropertyBuilder.cs" />
+    <Compile Include="Criterion\LePropertyExpression.cs" />
+    <Compile Include="Criterion\LikeExpression.cs" />
+    <Compile Include="Criterion\LogicalExpression.cs" />
+    <Compile Include="Criterion\LtPropertyExpression.cs" />
+    <Compile Include="Criterion\MatchMode.cs" />
+    <Compile Include="Criterion\NaturalIdentifier.cs" />
+    <Compile Include="Criterion\NotExpression.cs" />
+    <Compile Include="Criterion\NotNullExpression.cs" />
+    <Compile Include="Criterion\NullExpression.cs" />
+    <Compile Include="Criterion\NullSubqueryExpression.cs" />
+    <Compile Include="Criterion\Order.cs" />
+    <Compile Include="Criterion\OrExpression.cs" />
+    <Compile Include="Criterion\ProjectionList.cs" />
+    <Compile Include="Criterion\Projections.cs" />
+    <Compile Include="Criterion\ProjectionsExtensions.cs" />
+    <Compile Include="Criterion\Property.cs" />
+    <Compile Include="Criterion\PropertyExpression.cs" />
+    <Compile Include="Criterion\PropertyProjection.cs" />
+    <Compile Include="Criterion\PropertySubqueryExpression.cs" />
+    <Compile Include="Criterion\QueryOver.cs" />
+    <Compile Include="Criterion\QueryOverBuilderExtensions.cs" />
+    <Compile Include="Criterion\Restrictions.cs" />
+    <Compile Include="Criterion\RestrictionsExtensions.cs" />
+    <Compile Include="Criterion\RowCountInt64Projection.cs" />
+    <Compile Include="Criterion\RowCountProjection.cs" />
+    <Compile Include="Criterion\SelectSubqueryExpression.cs" />
+    <Compile Include="Criterion\SimpleExpression.cs" />
+    <Compile Include="Criterion\SimpleProjection.cs" />
+    <Compile Include="Criterion\SimpleSubqueryExpression.cs" />
+    <Compile Include="Criterion\SQLProjection.cs" />
+    <Compile Include="Criterion\Subqueries.cs" />
+    <Compile Include="Criterion\SubqueryExpression.cs" />
+    <Compile Include="Criterion\SubqueryProjection.cs" />
+    <Compile Include="Engine\NamedParameterDescriptor.cs" />
+    <Compile Include="Engine\OrdinalParameterDescriptor.cs" />
+    <Compile Include="Engine\RowSelection.cs" />
+    <Compile Include="FetchMode.cs" />
+    <Compile Include="ICriteria.cs" />
+    <Compile Include="IFutureValue.cs" />
+    <Compile Include="Impl\AbstractQueryImpl.cs" />
+    <Compile Include="Impl\CriteriaImpl.cs" />
+    <Compile Include="Impl\ExpressionProcessor.cs" />
+    <Compile Include="Engine\ParameterMetadata.cs" />
+    <Compile Include="Impl\TypeWrapper.cs" />
+    <Compile Include="Parameter.cs" />
+    <Compile Include="QueryParameters.cs" />
+    <Compile Include="IQuery.cs" />
+    <Compile Include="IQueryOver.cs" />
+    <Compile Include="JoinType.cs" />
+    <Compile Include="LockMode.cs" />
+    <Compile Include="SerializableAttribute.cs" />
+    <Compile Include="Transform\AliasToEntityMapResultTransformer.cs" />
+    <Compile Include="Transform\DistinctRootEntityResultTransformer.cs" />
+    <Compile Include="Transform\IResultTransformer.cs" />
+    <Compile Include="Transform\PassThroughResultTransformer.cs" />
+    <Compile Include="Transform\RootEntityResultTransformer.cs" />
+    <Compile Include="Util\ArrayHelper.cs" />
+    <Compile Include="Util\AssemblyQualifiedTypeName.cs" />
+    <Compile Include="Util\NHibernateUtil.cs" />
+    <Compile Include="Util\StringHelper.cs" />
+    <Compile Include="Util\StringTokenizer.cs" />
+    <Compile Include="Util\TypeNameParser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iesi.Collections.Silverlight\Iesi.Collections.Silverlight.csproj">
+      <Project>{2D5DBD8E-8AC8-4522-B65E-1E9B29832451}</Project>
+      <Name>Iesi.Collections.Silverlight</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\NHibernate.snk">
+      <Link>NHibernate.snk</Link>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

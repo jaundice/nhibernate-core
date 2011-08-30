@@ -56,6 +56,12 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\NHibernate.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -80,6 +86,9 @@
     <Compile Include="Set.cs" />
     <Compile Include="SortedSet.cs" />
     <Compile Include="SynchronizedSet.cs" />
+    <None Include="..\NHibernate.snk">
+      <Link>NHibernate.snk</Link>
+    </None>
     <None Include="Iesi.Collections.build" />
   </ItemGroup>
   <ItemGroup>
