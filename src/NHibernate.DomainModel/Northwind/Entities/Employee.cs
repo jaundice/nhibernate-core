@@ -7,8 +7,8 @@ namespace NHibernate.DomainModel.Northwind.Entities
 {
     public class Employee
     {
-        private readonly ISet<Order> _orders;
-        private readonly ISet<Employee> _subordinates;
+        private readonly Iesi.Collections.Generic.ISet<Order> _orders;
+        private readonly Iesi.Collections.Generic.ISet<Employee> _subordinates;
         private readonly IList<Territory> _territories;
         private Address _address;
         private DateTime? _birthDate;
@@ -95,7 +95,7 @@ namespace NHibernate.DomainModel.Northwind.Entities
             set { _superior = value; }
         }
 
-        public virtual ISet<Employee> Subordinates
+        public virtual Iesi.Collections.Generic.ISet<Employee> Subordinates
         {
             get { return _subordinates; }
         }
@@ -105,7 +105,7 @@ namespace NHibernate.DomainModel.Northwind.Entities
             get { return new ReadOnlyCollection<Territory>(_territories); }
         }
 
-        public virtual ISet<Order> Orders
+        public virtual Iesi.Collections.Generic.ISet<Order> Orders
         {
             get { return _orders; }
         }

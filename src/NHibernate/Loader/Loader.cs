@@ -495,9 +495,9 @@ namespace NHibernate.Loader
 			return false;
 		}
 
-		private static ISet<EntityKey>[] Transpose(IList<EntityKey[]> keys)
+		private static Iesi.Collections.Generic.ISet<EntityKey>[] Transpose(IList<EntityKey[]> keys)
 		{
-			ISet<EntityKey>[] result = new ISet<EntityKey>[keys[0].Length];
+			Iesi.Collections.Generic.ISet<EntityKey>[] result = new Iesi.Collections.Generic.ISet<EntityKey>[keys[0].Length];
 			for (int j = 0; j < result.Length; j++)
 			{
 				result[j] = new HashedSet<EntityKey>();
@@ -536,7 +536,7 @@ namespace NHibernate.Loader
 		private IEnumerable<SubselectFetch> CreateSubselects(IList<EntityKey[]> keys, QueryParameters queryParameters)
 		{
 			// see NH-2123 NH-2125
-			ISet<EntityKey>[] keySets = Transpose(keys);
+			Iesi.Collections.Generic.ISet<EntityKey>[] keySets = Transpose(keys);
 			ILoadable[] loadables = EntityPersisters;
 			string[] aliases = Aliases;
 
@@ -1477,7 +1477,7 @@ namespace NHibernate.Loader
 		/// <param name="querySpaces"></param>
 		/// <param name="resultTypes"></param>
 		/// <returns></returns>
-		protected IList List(ISessionImplementor session, QueryParameters queryParameters, ISet<string> querySpaces,
+		protected IList List(ISessionImplementor session, QueryParameters queryParameters, Iesi.Collections.Generic.ISet<string> querySpaces,
 		                     IType[] resultTypes)
 		{
 			bool cacheable = factory.Settings.IsQueryCacheEnabled && queryParameters.Cacheable;
@@ -1498,7 +1498,7 @@ namespace NHibernate.Loader
 		}
 
 		private IList ListUsingQueryCache(ISessionImplementor session, QueryParameters queryParameters,
-		                                  ISet<string> querySpaces, IType[] resultTypes)
+		                                  Iesi.Collections.Generic.ISet<string> querySpaces, IType[] resultTypes)
 		{
 			IQueryCache queryCache = factory.GetQueryCache(queryParameters.CacheRegion);
 
@@ -1517,7 +1517,7 @@ namespace NHibernate.Loader
 		}
 
 		private IList GetResultFromQueryCache(ISessionImplementor session, QueryParameters queryParameters,
-		                                      ISet<string> querySpaces, IType[] resultTypes, IQueryCache queryCache,
+		                                      Iesi.Collections.Generic.ISet<string> querySpaces, IType[] resultTypes, IQueryCache queryCache,
 		                                      QueryKey key)
 		{
 			IList result = null;

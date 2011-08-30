@@ -10,15 +10,15 @@ namespace NHibernate.Test.NHSpecificTest.NH2386
         //internal to TGA
         //private int organisationId;
         public virtual Guid OrganisationId { get; set; }
-        private ISet<TradingName> tradingNames;
-        private ISet<ResponsibleLegalPerson> responsibleLegalPersons;
+        private Iesi.Collections.Generic.ISet<TradingName> tradingNames;
+        private Iesi.Collections.Generic.ISet<ResponsibleLegalPerson> responsibleLegalPersons;
 
         /// <summary>
         /// 
         /// </summary>
         
 
-         public virtual ISet<ResponsibleLegalPerson> ResponsibleLegalPersons {
+         public virtual Iesi.Collections.Generic.ISet<ResponsibleLegalPerson> ResponsibleLegalPersons {
             get {
                 if (responsibleLegalPersons == null) {
                     responsibleLegalPersons = new HashedSet<ResponsibleLegalPerson>();
@@ -31,7 +31,7 @@ namespace NHibernate.Test.NHSpecificTest.NH2386
             }
         }
 
-        public virtual ISet<TradingName> TradingNames {
+        public virtual Iesi.Collections.Generic.ISet<TradingName> TradingNames {
             get {
                 if (tradingNames == null) {
                     tradingNames = new HashedSet<TradingName>();

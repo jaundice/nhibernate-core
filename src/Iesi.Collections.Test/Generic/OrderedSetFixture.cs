@@ -11,12 +11,12 @@ namespace Iesi.Collections.Test.Generic
 	[TestFixture]
 	public class OrderedSetFixture : GenericSetFixture
 	{
-		protected override ISet<string> CreateInstance()
+		protected override Collections.Generic.ISet<string> CreateInstance()
 		{
 			return new OrderedSet<string>();
 		}
 
-		protected override ISet<string> CreateInstance(ICollection<string> init)
+		protected override Collections.Generic.ISet<string> CreateInstance(ICollection<string> init)
 		{
 			return new OrderedSet<string>(init);
 		}

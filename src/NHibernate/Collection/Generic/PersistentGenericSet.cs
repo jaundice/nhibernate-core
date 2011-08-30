@@ -23,7 +23,7 @@ namespace NHibernate.Collection.Generic
 	/// </remarks>
 	[Serializable]
 	[DebuggerTypeProxy(typeof (CollectionProxy<>))]
-	public class PersistentGenericSet<T> : PersistentSet, ISet<T>
+	public class PersistentGenericSet<T> : PersistentSet, Iesi.Collections.Generic.ISet<T>
 	{
 		// TODO NH: find a way to writeonce (no duplicated code from PersistentSet)
 
@@ -31,13 +31,13 @@ namespace NHibernate.Collection.Generic
 		 * The implementation of Set<T> in Iesi collections don't have any particular behavior
 		 * for strongly typed. BTW we use the same technique used for other collection.
 		 */
-		protected ISet<T> gset;
+		protected Iesi.Collections.Generic.ISet<T> gset;
 		[NonSerialized] private IList<T> readList;
 
 		public PersistentGenericSet() {}
 		public PersistentGenericSet(ISessionImplementor session) : base(session) {}
 
-		public PersistentGenericSet(ISessionImplementor session, ISet<T> original) : base(session, original as ISet)
+		public PersistentGenericSet(ISessionImplementor session, Iesi.Collections.Generic.ISet<T> original) : base(session, original as ISet)
 		{
 			gset = original;
 			set = (ISet) original;
@@ -45,7 +45,7 @@ namespace NHibernate.Collection.Generic
 
 		public override void BeforeInitialize(ICollectionPersister persister, int anticipatedSize)
 		{
-			gset = (ISet<T>) persister.CollectionType.Instantiate(anticipatedSize);
+			gset = (Iesi.Collections.Generic.ISet<T>) persister.CollectionType.Instantiate(anticipatedSize);
 			set = (ISet) gset;
 		}
 
@@ -75,42 +75,42 @@ namespace NHibernate.Collection.Generic
 
 		#region ISet<T> Members
 
-		ISet<T> ISet<T>.Union(ISet<T> a)
+		Iesi.Collections.Generic.ISet<T> Iesi.Collections.Generic.ISet<T>.Union(Iesi.Collections.Generic.ISet<T> a)
 		{
 			Read();
 			return gset.Union(a);
 		}
 
-		ISet<T> ISet<T>.Intersect(ISet<T> a)
+		Iesi.Collections.Generic.ISet<T> Iesi.Collections.Generic.ISet<T>.Intersect(Iesi.Collections.Generic.ISet<T> a)
 		{
 			Read();
 			return gset.Intersect(a);
 		}
 
-		ISet<T> ISet<T>.Minus(ISet<T> a)
+		Iesi.Collections.Generic.ISet<T> Iesi.Collections.Generic.ISet<T>.Minus(Iesi.Collections.Generic.ISet<T> a)
 		{
 			Read();
 			return gset.Minus(a);
 		}
 
-		ISet<T> ISet<T>.ExclusiveOr(ISet<T> a)
+		Iesi.Collections.Generic.ISet<T> Iesi.Collections.Generic.ISet<T>.ExclusiveOr(Iesi.Collections.Generic.ISet<T> a)
 		{
 			Read();
 			return gset.ExclusiveOr(a);
 		}
 
-		bool ISet<T>.ContainsAll(ICollection<T> c)
+		bool Iesi.Collections.Generic.ISet<T>.ContainsAll(ICollection<T> c)
 		{
 			Read();
 			return gset.ContainsAll(c);
 		}
 
-		bool ISet<T>.Add(T o)
+		bool Iesi.Collections.Generic.ISet<T>.Add(T o)
 		{
 			return Add(o);
 		}
 
-		bool ISet<T>.AddAll(ICollection<T> c)
+		bool Iesi.Collections.Generic.ISet<T>.AddAll(ICollection<T> c)
 		{
 			if (c.Count > 0)
 			{
@@ -131,7 +131,7 @@ namespace NHibernate.Collection.Generic
 			}
 		}
 
-		bool ISet<T>.RemoveAll(ICollection<T> c)
+		bool Iesi.Collections.Generic.ISet<T>.RemoveAll(ICollection<T> c)
 		{
 			if (c.Count > 0)
 			{
@@ -152,7 +152,7 @@ namespace NHibernate.Collection.Generic
 			}
 		}
 
-		bool ISet<T>.RetainAll(ICollection<T> c)
+		bool Iesi.Collections.Generic.ISet<T>.RetainAll(ICollection<T> c)
 		{
 			Initialize(true);
 			if (gset.RetainAll(c))

@@ -7,7 +7,7 @@ namespace NHibernate.Test.Deletetransient
 	{
 		private long id;
 		private string name;
-		private ISet<Address> addresses = new HashedSet<Address>();
+		private Iesi.Collections.Generic.ISet<Address> addresses = new HashedSet<Address>();
 		private IList<Person> friends = new List<Person>();
 		public Person() {}
 		public Person(string name)
@@ -27,7 +27,7 @@ namespace NHibernate.Test.Deletetransient
 			set { name = value; }
 		}
 
-		public virtual ISet<Address> Addresses
+		public virtual Iesi.Collections.Generic.ISet<Address> Addresses
 		{
 			get { return addresses; }
 			set { addresses = value; }

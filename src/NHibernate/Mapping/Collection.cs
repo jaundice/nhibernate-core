@@ -603,7 +603,7 @@ namespace NHibernate.Mapping
 			}
 		}
 
-		private void CheckColumnDuplication(ISet<string> distinctColumns, IEnumerable<ISelectable> columns)
+		private void CheckColumnDuplication(Iesi.Collections.Generic.ISet<string> distinctColumns, IEnumerable<ISelectable> columns)
 		{
 			foreach (ISelectable s in columns)
 			{
@@ -649,7 +649,7 @@ namespace NHibernate.Mapping
 			set { nodeName = value; }
 		}
 
-		public ISet<string> SynchronizedTables
+		public Iesi.Collections.Generic.ISet<string> SynchronizedTables
 		{
 			get { return synchronizedTables; }
 		}

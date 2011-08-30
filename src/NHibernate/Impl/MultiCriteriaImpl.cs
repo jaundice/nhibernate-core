@@ -98,7 +98,7 @@ namespace NHibernate.Impl
 
 			ISet filterKeys = FilterKey.CreateFilterKeys(session.EnabledFilters, session.EntityMode);
 
-			ISet<string> querySpaces = new HashedSet<string>();
+			Iesi.Collections.Generic.ISet<string> querySpaces = new HashedSet<string>();
 			List<IType[]> resultTypesList = new List<IType[]>();
 			int[] maxRows = new int[loaders.Count];
 			int[] firstRows = new int[loaders.Count];
@@ -278,7 +278,7 @@ namespace NHibernate.Impl
 				int size = implementors.Length;
 
 				CriteriaLoader[] tmpLoaders = new CriteriaLoader[size];
-				ISet<string> spaces = new HashedSet<string>();
+				Iesi.Collections.Generic.ISet<string> spaces = new HashedSet<string>();
 
 				for (int i = 0; i < size; i++)
 				{

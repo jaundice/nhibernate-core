@@ -19,7 +19,7 @@ namespace NHibernate.Loader.Custom.Sql
 		private static readonly IInternalLogger log = LoggerProvider.LoggerFor(typeof (SQLCustomQuery));
 
 		private readonly List<IReturn> customQueryReturns = new List<IReturn>();
-		private readonly ISet<string> querySpaces = new HashedSet<string>();
+		private readonly Iesi.Collections.Generic.ISet<string> querySpaces = new HashedSet<string>();
 		private readonly SqlString sql;
 		private List<IParameterSpecification> parametersSpecifications;
 
@@ -53,7 +53,7 @@ namespace NHibernate.Loader.Custom.Sql
 			get { return sql; }
 		}
 
-		public ISet<string> QuerySpaces
+		public Iesi.Collections.Generic.ISet<string> QuerySpaces
 		{
 			get { return querySpaces; }
 		}

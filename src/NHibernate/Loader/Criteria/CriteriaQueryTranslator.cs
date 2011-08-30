@@ -34,7 +34,7 @@ namespace NHibernate.Loader.Criteria
 		private readonly IDictionary<String, ICriteriaInfoProvider> nameCriteriaInfoMap =
 			new Dictionary<string, ICriteriaInfoProvider>();
 
-		private readonly ISet<ICollectionPersister> criteriaCollectionPersisters = new HashedSet<ICollectionPersister>();
+		private readonly Iesi.Collections.Generic.ISet<ICollectionPersister> criteriaCollectionPersisters = new HashedSet<ICollectionPersister>();
 		private readonly IDictionary<ICriteria, string> criteriaSQLAliasMap = new Dictionary<ICriteria, string>();
 		private readonly IDictionary<string, ICriteria> aliasCriteriaMap = new Dictionary<string, ICriteria>();
 		private readonly IDictionary<string, ICriteria> associationPathCriteriaMap = new LinkedHashMap<string, ICriteria>();
@@ -80,9 +80,9 @@ namespace NHibernate.Loader.Criteria
 			get { return rootSQLAlias; }
 		}
 
-		public ISet<string> GetQuerySpaces()
+		public Iesi.Collections.Generic.ISet<string> GetQuerySpaces()
 		{
-			ISet<string> result = new HashedSet<string>();
+			Iesi.Collections.Generic.ISet<string> result = new HashedSet<string>();
 
 			foreach (ICriteriaInfoProvider info in criteriaInfoMap.Values)
 			{

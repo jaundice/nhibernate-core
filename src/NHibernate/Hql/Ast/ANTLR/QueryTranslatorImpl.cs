@@ -200,7 +200,7 @@ namespace NHibernate.Hql.Ast.ANTLR
 			return _sqlAst.Walker.SelectClause.ColumnNames;
 		}
 
-		public ISet<string> QuerySpaces
+		public Iesi.Collections.Generic.ISet<string> QuerySpaces
 		{
 			get { return _sqlAst.Walker.QuerySpaces; }
 		}

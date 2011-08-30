@@ -6,7 +6,7 @@ namespace NHibernate.DomainModel.Northwind.Entities
 {
     public class Customer
     {
-        private readonly ISet<Order> _orders;
+        private readonly Iesi.Collections.Generic.ISet<Order> _orders;
         private Address _address;
         private string _companyName;
         private string _contactName;
@@ -48,7 +48,7 @@ namespace NHibernate.DomainModel.Northwind.Entities
             set { _address = value; }
         }
 
-        public virtual ISet<Order> Orders
+        public virtual Iesi.Collections.Generic.ISet<Order> Orders
         {
             get { return _orders; }
         }

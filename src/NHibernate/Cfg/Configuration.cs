@@ -73,7 +73,7 @@ namespace NHibernate.Cfg
 
 		private EventListeners eventListeners;
 		protected IDictionary<string, TypeDef> typeDefs;
-		protected ISet<ExtendsQueueEntry> extendsQueue;
+		protected Iesi.Collections.Generic.ISet<ExtendsQueueEntry> extendsQueue;
 		protected IDictionary<string, Mappings.TableDescription> tableNameBinding;
 		protected IDictionary<Table, Mappings.ColumnNames> columnNameBindingPerTable;
 

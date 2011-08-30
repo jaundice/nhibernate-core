@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Iesi.Collections.Generic;
-
 namespace NHibernate.DomainModel.Northwind.Entities
 {
     public class Supplier
     {
-        private readonly ISet<Product> _products;
+        private readonly Iesi.Collections.Generic.ISet<Product> _products;
         private Address _address;
         private string _companyName;
         private string _contactName;

@@ -20,7 +20,7 @@ namespace NHibernate.Loader.Custom
 		/// used in Hibernate's auto-flushing mechanism to determine which
 		/// entities need to be checked for pending changes. 
 		/// </summary>
-		ISet<string> QuerySpaces { get; }
+		Iesi.Collections.Generic.ISet<string> QuerySpaces { get; }
 
 		/// <summary> 
 		/// A collection of <see cref="IReturn"/> descriptors describing the

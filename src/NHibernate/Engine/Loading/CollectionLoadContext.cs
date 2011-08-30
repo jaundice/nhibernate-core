@@ -25,7 +25,7 @@ namespace NHibernate.Engine.Loading
 		private static readonly IInternalLogger log = LoggerProvider.LoggerFor(typeof(CollectionLoadContext));
 		private readonly LoadContexts loadContexts;
 		private readonly IDataReader resultSet;
-		private readonly ISet<CollectionKey> localLoadingCollectionKeys = new HashedSet<CollectionKey>();
+		private readonly Iesi.Collections.Generic.ISet<CollectionKey> localLoadingCollectionKeys = new HashedSet<CollectionKey>();
 
 		/// <summary> 
 		/// Creates a collection load context for the given result set. 

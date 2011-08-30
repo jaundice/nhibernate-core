@@ -213,7 +213,7 @@ namespace NHibernate.Engine
 		/// </summary>
 		/// <param name="tables">The table/query-spaces to check. </param>
 		/// <returns> True if we contain pending actions against any of the given tables; false otherwise.</returns>
-		public virtual bool AreTablesToBeUpdated(ISet<string> tables)
+		public virtual bool AreTablesToBeUpdated(Iesi.Collections.Generic.ISet<string> tables)
 		{
 			return 
 				AreTablesToUpdated(updates, tables) 
@@ -506,7 +506,7 @@ loopInsertion: ;
 		private class AfterTransactionCompletionProcessQueue 
 		{
 			private ISessionImplementor session;
-			private ISet<string> querySpacesToInvalidate = new HashedSet<string>();
+			private Iesi.Collections.Generic.ISet<string> querySpacesToInvalidate = new HashedSet<string>();
 			private IList<AfterTransactionCompletionProcessDelegate> processes = new List<AfterTransactionCompletionProcessDelegate>(InitQueueListSize * 3);
 
 			public bool HasActions

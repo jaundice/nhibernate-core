@@ -14,12 +14,12 @@ namespace Iesi.Collections.Test.Generic
 	[TestFixture]
 	public class HashedSetFixture : GenericSetFixture
 	{
-		protected override ISet<string> CreateInstance()
+		protected override Collections.Generic.ISet<string> CreateInstance()
 		{
 			return new HashedSet<string>();
 		}
 
-		protected override ISet<string> CreateInstance(ICollection<string> init)
+		protected override Collections.Generic.ISet<string> CreateInstance(ICollection<string> init)
 		{
 			return new HashedSet<string>(init);
 		}
@@ -38,7 +38,7 @@ namespace Iesi.Collections.Test.Generic
 			formatter.Serialize(stream, _set);
 			stream.Position = 0;
 
-			ISet<string> desSet = (ISet<string>) formatter.Deserialize(stream);
+			Collections.Generic.ISet<string> desSet = (Collections.Generic.ISet<string>) formatter.Deserialize(stream);
 			stream.Close();
 
 			Assert.AreEqual(3, desSet.Count, "should have des 3 items");

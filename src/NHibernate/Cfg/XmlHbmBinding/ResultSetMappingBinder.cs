@@ -244,7 +244,7 @@ namespace NHibernate.Cfg.XmlHbmBinding
 				}
 			}
 
-			ISet<string> uniqueReturnProperty = new HashedSet<string>();
+			Iesi.Collections.Generic.ISet<string> uniqueReturnProperty = new HashedSet<string>();
 			foreach (HbmReturnProperty returnPropertySchema in properties)
 			{
 				string name = returnPropertySchema.name;

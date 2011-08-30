@@ -85,10 +85,10 @@ namespace NHibernate.Test.NHSpecificTest.NH1217
 
 	public class Node : DomainBase, INode
 	{
-		private ISet<IEdge> _fromEdges;
+		private Iesi.Collections.Generic.ISet<IEdge> _fromEdges;
 		private String _label;
 		private IRoot _root;
-		private ISet<IEdge> _toEdges;
+		private Iesi.Collections.Generic.ISet<IEdge> _toEdges;
 
 		#region INode Members
 
@@ -106,7 +106,7 @@ namespace NHibernate.Test.NHSpecificTest.NH1217
 		}
 
 
-		public virtual ISet<IEdge> FromEdges
+		public virtual Iesi.Collections.Generic.ISet<IEdge> FromEdges
 		{
 			get
 			{
@@ -117,7 +117,7 @@ namespace NHibernate.Test.NHSpecificTest.NH1217
 		}
 
 
-		public virtual ISet<IEdge> ToEdges
+		public virtual Iesi.Collections.Generic.ISet<IEdge> ToEdges
 		{
 			get
 			{

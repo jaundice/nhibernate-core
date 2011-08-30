@@ -90,7 +90,7 @@ namespace NHibernate.Cache
 			return true;
 		}
 
-		public IList Get(QueryKey key, ICacheAssembler[] returnTypes, bool isNaturalKeyLookup, ISet<string> spaces,
+		public IList Get(QueryKey key, ICacheAssembler[] returnTypes, bool isNaturalKeyLookup, Iesi.Collections.Generic.ISet<string> spaces,
 		                 ISessionImplementor session)
 		{
 			if (log.IsDebugEnabled)
@@ -172,7 +172,7 @@ namespace NHibernate.Cache
 
 		#endregion
 
-		protected virtual bool IsUpToDate(ISet<string> spaces, long timestamp)
+		protected virtual bool IsUpToDate(Iesi.Collections.Generic.ISet<string> spaces, long timestamp)
 		{
 			return updateTimestampsCache.IsUpToDate(spaces, timestamp);
 		}

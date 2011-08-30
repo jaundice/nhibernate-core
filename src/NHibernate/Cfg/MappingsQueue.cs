@@ -12,7 +12,7 @@ namespace NHibernate.Cfg
 	public class MappingsQueue
 	{
 		private readonly Queue availableEntries = new Queue();
-		private readonly ISet<string> processedClassNames = new HashedSet<string>();
+		private readonly Iesi.Collections.Generic.ISet<string> processedClassNames = new HashedSet<string>();
 
 		private readonly List<MappingsQueueEntry> unavailableEntries = new List<MappingsQueueEntry>();
 

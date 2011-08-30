@@ -6,7 +6,7 @@ namespace NHibernate.Test.Operations
 {
 	public class NumberedNode
 	{
-		private readonly ISet<NumberedNode> children = new HashedSet<NumberedNode>();
+		private readonly Iesi.Collections.Generic.ISet<NumberedNode> children = new HashedSet<NumberedNode>();
 
 		protected NumberedNode() {}
 

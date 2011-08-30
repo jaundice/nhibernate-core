@@ -5,7 +5,7 @@ namespace NHibernate.Test.Insertordering
 {
 	public class User
 	{
-		private ISet<Membership> memberships;
+		private Iesi.Collections.Generic.ISet<Membership> memberships;
 		public User()
 		{
 			memberships = new HashedSet<Membership>();

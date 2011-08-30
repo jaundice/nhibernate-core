@@ -12,7 +12,7 @@ namespace Iesi.Collections.Test.Generic
 	{
 		private IList<string> _aInitValues;
 		private IList<string> _bInitValues;
-		protected ISet<string> _set;
+		protected Collections.Generic.ISet<string> _set;
 
 		public static string one = "one";
 		public static string two = "two";
@@ -40,7 +40,7 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void Clone()
 		{
-			ISet<string> clonedSet = (ISet<string>) _set.Clone();
+			Collections.Generic.ISet<string> clonedSet = (Collections.Generic.ISet<string>) _set.Clone();
 
 			Assert.AreEqual(ExpectedType, clonedSet.GetType(), "cloned set should be the same type");
 			Assert.AreEqual(_set.Count, clonedSet.Count, "set and cloned version should be same");
@@ -104,7 +104,7 @@ namespace Iesi.Collections.Test.Generic
 			init.Add("two");
 			init.Add("three");
 
-			ISet<string> theSet = CreateInstance(init);
+			Collections.Generic.ISet<string> theSet = CreateInstance(init);
 
 			Assert.AreEqual(3, init.Count, "3 items in set");
 
@@ -205,10 +205,10 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void ExclusiveOr()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = Set<string>.ExclusiveOr(a, b);
+			Collections.Generic.ISet<string> ab = Set<string>.ExclusiveOr(a, b);
 
 			Assert.AreEqual(3, ab.Count, "contains 3 elements - 'zero', 'one', and 'four'");
 			Assert.IsTrue(ab.Contains("zero"), "should contain 'zero'");
@@ -218,25 +218,25 @@ namespace Iesi.Collections.Test.Generic
 			Assert.IsTrue(a.ContainsAll(_aInitValues), "should not have modified a");
 			Assert.IsTrue(b.ContainsAll(_bInitValues), "should not have modified b");
 
-			ISet<string> aNull = Set<string>.ExclusiveOr(a, null);
+			Collections.Generic.ISet<string> aNull = Set<string>.ExclusiveOr(a, null);
 			Assert.AreEqual(_aInitValues.Count, aNull.Count, "count still same");
 			Assert.IsTrue(aNull.ContainsAll(_aInitValues), "all A elements kept");
 
-			ISet<string> bNull = Set<string>.ExclusiveOr(null, b);
+			Collections.Generic.ISet<string> bNull = Set<string>.ExclusiveOr(null, b);
 			Assert.AreEqual(_bInitValues.Count, bNull.Count, "count still same");
 			Assert.IsTrue(bNull.ContainsAll(_bInitValues), "all B elements kept");
 
-			ISet<string> bothNull = Set<string>.ExclusiveOr(null, null);
+			Collections.Generic.ISet<string> bothNull = Set<string>.ExclusiveOr(null, null);
 			Assert.AreEqual(null, bothNull, "two null sets return null set");
 		}
 
 		[Test]
 		public void Intersect()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = Set<string>.Intersect(a, b);
+			Collections.Generic.ISet<string> ab = Set<string>.Intersect(a, b);
 
 			Assert.AreEqual(2, ab.Count, "contains 2 elements - 'two', and 'three'");
 			Assert.IsTrue(ab.Contains("two"), "should contain 'two'");
@@ -245,13 +245,13 @@ namespace Iesi.Collections.Test.Generic
 			Assert.IsTrue(a.ContainsAll(_aInitValues), "should not have modified a");
 			Assert.IsTrue(b.ContainsAll(_bInitValues), "should not have modified b");
 
-			ISet<string> aNull = Set<string>.Intersect(a, null);
+			Collections.Generic.ISet<string> aNull = Set<string>.Intersect(a, null);
 			Assert.AreEqual(0, aNull.Count, "no elements intersected with null set");
 
-			ISet<string> bNull = Set<string>.Intersect(null, b);
+			Collections.Generic.ISet<string> bNull = Set<string>.Intersect(null, b);
 			Assert.AreEqual(0, bNull.Count, "no elements intersected with null set");
 
-			ISet<string> bothNull = Set<string>.Intersect(null, null);
+			Collections.Generic.ISet<string> bothNull = Set<string>.Intersect(null, null);
 			Assert.AreEqual(null, bothNull, "null sets intersect as null set");
 		}
 
@@ -266,10 +266,10 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void Minus()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = Set<string>.Minus(a, b);
+			Collections.Generic.ISet<string> ab = Set<string>.Minus(a, b);
 
 			Assert.AreEqual(2, ab.Count, "contains 2 elements - 'zero', and 'one'");
 			Assert.IsTrue(ab.Contains("zero"), "should contain 'zero'");
@@ -278,13 +278,13 @@ namespace Iesi.Collections.Test.Generic
 			Assert.IsTrue(a.ContainsAll(_aInitValues), "should not have modified a");
 			Assert.IsTrue(b.ContainsAll(_bInitValues), "should not have modified b");
 
-			ISet<string> aNull = Set<string>.Minus(a, null);
+			Collections.Generic.ISet<string> aNull = Set<string>.Minus(a, null);
 			Assert.IsTrue(aNull.ContainsAll(_aInitValues), "should have removed no elements");
 
-			ISet<string> bNull = Set<string>.Minus(null, b);
+			Collections.Generic.ISet<string> bNull = Set<string>.Minus(null, b);
 			Assert.AreEqual(null, bNull, "null set remained null");
 
-			ISet<string> bothNull = Set<string>.Minus(null, null);
+			Collections.Generic.ISet<string> bothNull = Set<string>.Minus(null, null);
 			Assert.AreEqual(null, bothNull, "both sets are null");
 		}
 
@@ -356,10 +356,10 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void Union()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = Set<string>.Union(a, b);
+			Collections.Generic.ISet<string> ab = Set<string>.Union(a, b);
 
 			Assert.AreEqual(5, ab.Count, "contains 5 elements - 'zero' through 'four'");
 			Assert.IsTrue(ab.Contains("zero"), "should contain 'zero'");
@@ -371,15 +371,15 @@ namespace Iesi.Collections.Test.Generic
 			Assert.IsTrue(a.ContainsAll(_aInitValues), "should not have modified a");
 			Assert.IsTrue(b.ContainsAll(_bInitValues), "should not have modified b");
 
-			ISet<string> aNull = Set<string>.Union(a, null);
+			Collections.Generic.ISet<string> aNull = Set<string>.Union(a, null);
 			Assert.AreEqual(_aInitValues.Count, aNull.Count, "count not changed");
 			Assert.IsTrue(aNull.ContainsAll(_aInitValues), "still contains all initial values");
 
-			ISet<string> bNull = Set<string>.Union(null, b);
+			Collections.Generic.ISet<string> bNull = Set<string>.Union(null, b);
 			Assert.AreEqual(_bInitValues.Count, bNull.Count, "count not changed");
 			Assert.IsTrue(bNull.ContainsAll(_bInitValues), "still contains all initial values");
 
-			ISet<string> bothNull = Set<string>.Union(null, null);
+			Collections.Generic.ISet<string> bothNull = Set<string>.Union(null, null);
 			Assert.AreEqual(null, bothNull, "two nulls intersect as null");
 		}
 
@@ -390,10 +390,10 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void ExclusiveOrOperator()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = (Set<string>) a ^ (Set<string>) b;
+			Collections.Generic.ISet<string> ab = (Set<string>) a ^ (Set<string>) b;
 
 			Assert.AreEqual(3, ab.Count, "contains 3 elements - 'zero', 'one', and 'four'");
 			Assert.IsTrue(ab.Contains("zero"), "should contain 'zero'");
@@ -407,10 +407,10 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void IntersectOperator()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = (Set<string>) a & (Set<string>) b;
+			Collections.Generic.ISet<string> ab = (Set<string>) a & (Set<string>) b;
 
 			Assert.AreEqual(2, ab.Count, "contains 2 elements - 'two', and 'three'");
 			Assert.IsTrue(ab.Contains("two"), "should contain 'two'");
@@ -420,10 +420,10 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void MinusOperator()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = (Set<string>) a - (Set<string>) b;
+			Collections.Generic.ISet<string> ab = (Set<string>) a - (Set<string>) b;
 
 			Assert.AreEqual(2, ab.Count, "contains 2 elements - 'zero', and 'one'");
 			Assert.IsTrue(ab.Contains("zero"), "should contain 'zero'");
@@ -436,10 +436,10 @@ namespace Iesi.Collections.Test.Generic
 		[Test]
 		public void UnionOperator()
 		{
-			ISet<string> a = CreateInstance(_aInitValues);
-			ISet<string> b = CreateInstance(_bInitValues);
+			Collections.Generic.ISet<string> a = CreateInstance(_aInitValues);
+			Collections.Generic.ISet<string> b = CreateInstance(_bInitValues);
 
-			ISet<string> ab = (Set<string>) a | (Set<string>) b;
+			Collections.Generic.ISet<string> ab = (Set<string>) a | (Set<string>) b;
 
 			Assert.AreEqual(5, ab.Count, "contains 5 elements - 'zero' through 'four'");
 			Assert.IsTrue(ab.Contains("zero"), "should contain 'zero'");
@@ -454,9 +454,9 @@ namespace Iesi.Collections.Test.Generic
 
 		#endregion
 
-		protected abstract ISet<string> CreateInstance();
+		protected abstract Collections.Generic.ISet<string> CreateInstance();
 
-		protected abstract ISet<string> CreateInstance(ICollection<string> init);
+		protected abstract Collections.Generic.ISet<string> CreateInstance(ICollection<string> init);
 
 		protected abstract Type ExpectedType { get; }
 	}

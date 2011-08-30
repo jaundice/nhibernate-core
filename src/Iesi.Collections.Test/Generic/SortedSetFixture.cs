@@ -12,19 +12,19 @@ namespace Iesi.Collections.Test.Generic
 	[TestFixture]
 	public class SortedSetFixture : GenericSetFixture
 	{
-		protected override ISet<string> CreateInstance()
+		protected override Collections.Generic.ISet<string> CreateInstance()
 		{
-			return new SortedSet<string>();
+			return new Collections.Generic.SortedSet<string>();
 		}
 
-		protected override ISet<string> CreateInstance(ICollection<string> init)
+		protected override Collections.Generic.ISet<string> CreateInstance(ICollection<string> init)
 		{
-			return new SortedSet<string>(init);
+			return new Collections.Generic.SortedSet<string>(init);
 		}
 
 		protected override Type ExpectedType
 		{
-			get { return typeof(SortedSet<string>); }
+			get { return typeof(Collections.Generic.SortedSet<string>); }
 		}
 
 		[Test]
@@ -52,7 +52,7 @@ namespace Iesi.Collections.Test.Generic
 			expectedOrder.Add("two");
 			expectedOrder.Add("tHree");
 
-			SortedSet<string> theSet = new SortedSet<string>(StringComparer.CurrentCultureIgnoreCase);
+			Collections.Generic.SortedSet<string> theSet = new Collections.Generic.SortedSet<string>(StringComparer.CurrentCultureIgnoreCase);
 			foreach (string str in expectedOrder)
 				theSet.Add(str);
 

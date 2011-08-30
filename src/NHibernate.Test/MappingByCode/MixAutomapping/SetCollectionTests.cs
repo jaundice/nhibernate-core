@@ -12,8 +12,8 @@ namespace NHibernate.Test.MappingByCode.MixAutomapping
 		private class EntityWithSets
 		{
 			private ICollection<string> others;
-			private ISet<string> emails;
-			public ISet<string> NickNames { get; set; }
+			private Iesi.Collections.Generic.ISet<string> emails;
+			public Iesi.Collections.Generic.ISet<string> NickNames { get; set; }
 
 			public ICollection<string> Emails
 			{

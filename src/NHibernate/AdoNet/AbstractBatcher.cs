@@ -36,8 +36,8 @@ namespace NHibernate.AdoNet
 		private SqlString batchCommandSql;
 		private SqlType[] batchCommandParameterTypes;
 
-		private readonly ISet<IDbCommand> commandsToClose = new HashedSet<IDbCommand>();
-		private readonly ISet<IDataReader> readersToClose = new HashedSet<IDataReader>();
+		private readonly Iesi.Collections.Generic.ISet<IDbCommand> commandsToClose = new HashedSet<IDbCommand>();
+        private readonly Iesi.Collections.Generic.ISet<IDataReader> readersToClose = new HashedSet<IDataReader>();
 		private readonly IDictionary<IDataReader, Stopwatch> readersDuration = new Dictionary<IDataReader, Stopwatch>();
 		private IDbCommand lastQuery;
 

@@ -25,7 +25,7 @@ namespace NHibernate.Loader.Custom
 		// Currently *not* cachable if autodiscover types is in effect (e.g. "select * ...")
 
 		private readonly SqlString sql;
-		private readonly ISet<string> querySpaces = new HashedSet<string>();
+		private readonly Iesi.Collections.Generic.ISet<string> querySpaces = new HashedSet<string>();
 		private List<IParameterSpecification> parametersSpecifications;
 
 		private readonly IQueryable[] entityPersisters;
@@ -173,7 +173,7 @@ namespace NHibernate.Loader.Custom
 			rowProcessor = new ResultRowProcessor(hasScalars, resultColumnProcessors.ToArray());
 		}
 
-		public ISet<string> QuerySpaces
+		public Iesi.Collections.Generic.ISet<string> QuerySpaces
 		{
 			get { return querySpaces; }
 		}
