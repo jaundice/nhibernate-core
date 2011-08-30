@@ -23,6 +23,11 @@ namespace NHibernate.Criterion
 			_projection = projection;
 		}
 
+        internal NotNullExpression()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		private static readonly TypedValue[] NoValues = new TypedValue[0];
 
 		/// <summary>

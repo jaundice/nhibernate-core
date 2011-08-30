@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using gen = System.Collections.Generic;
 using System.Reflection;
 using Iesi.Collections.Generic;
 using NHibernate.Engine;
@@ -296,7 +296,7 @@ namespace NHibernate.Criterion
 			return list.ToArray();
 		}
 
-		public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
+		public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, gen.IDictionary<string, IFilter> enabledFilters)
 		{
 			SqlStringBuilder builder = new SqlStringBuilder();
 			builder.Add(StringHelper.OpenParen);
@@ -468,7 +468,7 @@ namespace NHibernate.Criterion
 			object propertyValue,
 			ICriteria criteria,
 			ICriteriaQuery cq,
-			IDictionary<string, IFilter> enabledFilters,
+			gen.IDictionary<string, IFilter> enabledFilters,
 			SqlStringBuilder builder)
 		{
 			if (builder.Count > 1)
@@ -498,7 +498,7 @@ namespace NHibernate.Criterion
 			IAbstractComponentType type,
 			ICriteria criteria,
 			ICriteriaQuery criteriaQuery,
-			IDictionary<string, IFilter> enabledFilters,
+			gen.IDictionary<string, IFilter> enabledFilters,
 			SqlStringBuilder builder)
 		{
 			if (component != null)

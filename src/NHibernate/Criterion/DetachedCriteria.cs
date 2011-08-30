@@ -21,6 +21,11 @@ namespace NHibernate.Criterion
 		private readonly CriteriaImpl impl;
 		private readonly ICriteria criteria;
 
+        internal DetachedCriteria()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		protected DetachedCriteria(System.Type entityType)
 		{
 			impl = new CriteriaImpl(entityType, null);

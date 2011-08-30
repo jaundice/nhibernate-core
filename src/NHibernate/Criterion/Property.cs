@@ -13,6 +13,11 @@ namespace NHibernate.Criterion
 		{
 		}
 
+        internal Property():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public AbstractCriterion Between(Object min, Object max)
 		{
 			return Expression.Between(PropertyName, min, max);

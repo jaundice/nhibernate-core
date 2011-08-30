@@ -13,6 +13,11 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public class AggregateProjection : SimpleProjection
 	{
+        protected internal AggregateProjection():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		protected readonly string aggregate;
 		protected readonly IProjection projection;
 		protected readonly string propertyName;

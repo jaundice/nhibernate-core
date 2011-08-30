@@ -15,6 +15,11 @@ namespace NHibernate.Criterion.Lambda
 		public QueryOverLockBuilder(QueryOver<TRoot,TSubType> root, Expression<Func<object>> alias)
 			: base(root, alias) { }
 
+        internal QueryOverLockBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 	}
 
 	public class IQueryOverLockBuilder<TRoot,TSubType> : QueryOverLockBuilderBase<IQueryOver<TRoot,TSubType>, TRoot, TSubType>
@@ -22,6 +27,11 @@ namespace NHibernate.Criterion.Lambda
 
 		public IQueryOverLockBuilder(IQueryOver<TRoot,TSubType> root, Expression<Func<object>> alias)
 			: base(root, alias) { }
+
+        internal IQueryOverLockBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 	}
 
@@ -38,6 +48,11 @@ namespace NHibernate.Criterion.Lambda
 			if (alias != null)
 				this.alias = ExpressionProcessor.FindMemberExpression(alias.Body);
 		}
+
+        public QueryOverLockBuilderBase()
+        {
+            // TODO: Complete member initialization
+        }
 
 		private void SetLockMode(LockMode lockMode)
 		{

@@ -24,6 +24,11 @@ namespace NHibernate.Criterion
 			_projection = projection;
 		}
 
+        internal NullExpression()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		/// <summary>
 		/// Initialize a new instance of the <see cref="NotNullExpression" /> class for a named
 		/// Property that should be null.

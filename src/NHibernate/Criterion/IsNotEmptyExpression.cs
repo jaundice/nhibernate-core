@@ -13,6 +13,11 @@ namespace NHibernate.Criterion
 		{
 		}
 
+        internal IsNotEmptyExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		protected override bool ExcludeEmpty
 		{
 			get { return true; }

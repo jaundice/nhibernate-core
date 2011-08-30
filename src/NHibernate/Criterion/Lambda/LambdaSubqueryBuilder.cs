@@ -23,6 +23,11 @@ namespace NHibernate.Criterion.Lambda
 			this.value = value;
 		}
 
+        internal LambdaSubqueryBuilder()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		private AbstractCriterion CreatePropertyCriterion<U>(	Func<string, DetachedCriteria, AbstractCriterion>   propertyFactoryMethod,
 																Func<object, DetachedCriteria, AbstractCriterion>	valueFactoryMethod,
 																QueryOver<U>										detachedCriteria)

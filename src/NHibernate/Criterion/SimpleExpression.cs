@@ -21,6 +21,14 @@ namespace NHibernate.Criterion
 		private bool ignoreCase;
 		private readonly string op;
 
+        /// <summary>
+        /// jd: used by deserializer 
+        /// </summary>
+        internal SimpleExpression()
+        {
+            
+        }
+
 		protected internal SimpleExpression(IProjection projection, object value, string op)
 		{
 			_projection = projection;

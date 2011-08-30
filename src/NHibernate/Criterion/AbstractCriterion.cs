@@ -11,6 +11,12 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public abstract class AbstractCriterion : ICriterion
 	{
+
+        protected internal AbstractCriterion()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		/// <summary>
 		/// Gets a string representation of the <see cref="AbstractCriterion"/>.  
 		/// </summary>

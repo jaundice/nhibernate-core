@@ -15,5 +15,10 @@ namespace NHibernate.Criterion
             : base(null, quantifier, dc, false)
         {
         }
+
+        internal NullSubqueryExpression()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
     }
 }

@@ -12,9 +12,14 @@ namespace NHibernate.Criterion.Lambda
 	public class QueryOverFetchBuilder<TRoot,TSubType> : QueryOverFetchBuilderBase<QueryOver<TRoot,TSubType>, TRoot, TSubType>
 	{
 
+
 		public QueryOverFetchBuilder(QueryOver<TRoot,TSubType> root, Expression<Func<TRoot, object>> path)
 			: base(root, path) { }
 
+        internal QueryOverFetchBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 	}
 
 	public class IQueryOverFetchBuilder<TRoot,TSubType> : QueryOverFetchBuilderBase<IQueryOver<TRoot,TSubType>, TRoot, TSubType>
@@ -22,6 +27,11 @@ namespace NHibernate.Criterion.Lambda
 
 		public IQueryOverFetchBuilder(IQueryOver<TRoot,TSubType> root, Expression<Func<TRoot, object>> path)
 			: base(root, path) { }
+
+        internal IQueryOverFetchBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 	}
 
@@ -37,7 +47,12 @@ namespace NHibernate.Criterion.Lambda
 			this.path = ExpressionProcessor.FindMemberExpression(path.Body);
 		}
 
-		public TReturn Eager
+	    protected internal QueryOverFetchBuilderBase()
+	    {
+            //jd: only used when building up from deserialized NHibernateClient objects
+	    }
+
+	    public TReturn Eager
 		{
 			get
 			{

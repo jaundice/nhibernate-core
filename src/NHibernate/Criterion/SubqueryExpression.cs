@@ -13,26 +13,34 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public abstract class SubqueryExpression : AbstractCriterion
 	{
-		private readonly CriteriaImpl criteriaImpl;
-		private readonly String quantifier;
-		private readonly bool prefixOp;
-		private readonly String op;
-		private QueryParameters parameters;
+		internal readonly CriteriaImpl criteriaImpl;
+		internal readonly String quantifier;
+	    internal readonly bool prefixOp;
+	    internal readonly String op;
+		internal QueryParameters parameters;
 		private IType[] types;
 
 		[NonSerialized] private CriteriaQueryTranslator innerQuery;
 
-		protected SubqueryExpression(String op, String quantifier, DetachedCriteria dc)
-			:this(op, quantifier, dc, true)
-		{
-		}
+        /// <summary>
+        /// jd:used to deserialize from NHibernateClient
+        /// </summary>
+        internal SubqueryExpression():base()
+        {
+            
+        }
+
+        protected SubqueryExpression(String op, String quantifier, DetachedCriteria dc)
+            :this(op, quantifier, dc, true)
+        {
+        }
 
 		protected SubqueryExpression(String op, String quantifier, DetachedCriteria dc, bool prefixOp)
 		{
 			criteriaImpl = dc.GetCriteriaImpl();
 			this.quantifier = quantifier;
-			this.prefixOp = prefixOp;
-			this.op = op;
+		    this.prefixOp = prefixOp;
+		    this.op = op;
 		}
 
 		public IType[] GetTypes()
@@ -84,33 +92,33 @@ namespace NHibernate.Criterion
 				buf.Add(" ").Add(op).Add(" ");
 			}
 
-			if (quantifier != null && prefixOp)
+            if (quantifier != null && prefixOp)
 			{
 				buf.Add(quantifier).Add(" ");
 			}
-			
-			buf.Add("(").Add(sql).Add(")");
+		    
+            buf.Add("(").Add(sql).Add(")");
 
-			if (quantifier != null && prefixOp == false)
-			{
-				buf.Add(" ").Add(quantifier);
-			}
+            if(quantifier!=null && prefixOp==false)
+            {
+                buf.Add(" ").Add(quantifier);
+            }
 
-			return buf.ToSqlString();
+		    return buf.ToSqlString();
 		}
 
 		public override string ToString()
 		{
-			if(prefixOp)
-				return string.Format("{0} {1} ({2})", op, quantifier, criteriaImpl);
+            if(prefixOp)
+			    return string.Format("{0} {1} ({2})", op, quantifier, criteriaImpl);
 			
-			return string.Format("{0} ({1}) {2}", op, criteriaImpl, quantifier);
+            return string.Format("{0} ({1}) {2}", op, criteriaImpl, quantifier);
 		}
 
 		public override TypedValue[] GetTypedValues(ICriteria criteria, ICriteriaQuery criteriaQuery)
 		{
 			return parameters.NamedParameters.Values.ToArray();
-		}
+			}
 
 		public override IProjection[] GetProjections()
 		{
@@ -121,18 +129,18 @@ namespace NHibernate.Criterion
 		{
 			if (innerQuery == null)
 			{
-				ISessionFactoryImplementor factory = criteriaQuery.Factory;
-
+			ISessionFactoryImplementor factory = criteriaQuery.Factory;
+				
 				innerQuery = new CriteriaQueryTranslator(
-					factory,
-					criteriaImpl, //implicit polymorphism not supported (would need a union)
-					criteriaImpl.EntityOrClassName,
-					criteriaQuery.GenerateSQLAlias(),
-					criteriaQuery);
-
+						factory,
+						criteriaImpl, //implicit polymorphism not supported (would need a union)
+						criteriaImpl.EntityOrClassName,
+						criteriaQuery.GenerateSQLAlias(),
+						criteriaQuery);
+				
 				types = innerQuery.HasProjection ? innerQuery.ProjectedTypes : null;
 			}
-		}
+			}
 
 		public ICriteria Criteria
 		{

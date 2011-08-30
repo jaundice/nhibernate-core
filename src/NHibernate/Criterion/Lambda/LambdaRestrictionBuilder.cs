@@ -25,6 +25,11 @@ namespace NHibernate.Criterion.Lambda
 				this.isNot = isNot;
 			}
 
+            internal LambdaBetweenBuilder()
+            {
+                //jd: only used when building up from deserialized NHibernateClient objects
+            }
+
 			public AbstractCriterion And(object hi)
 			{
 				if (isNot)
@@ -52,6 +57,11 @@ namespace NHibernate.Criterion.Lambda
 		{
 			this.projection = projection;
 		}
+
+        internal LambdaRestrictionBuilder()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 		/// <summary>
 		/// Apply a "between" constraint to the named property

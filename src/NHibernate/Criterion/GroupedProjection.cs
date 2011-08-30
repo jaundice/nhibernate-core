@@ -18,6 +18,11 @@ namespace NHibernate.Criterion
 			this.projection = projection;
 		}
 
+        internal GroupedProjection()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public virtual SqlString ToSqlString(ICriteria criteria, int position, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
 		{
 			return projection.ToSqlString(criteria, position, criteriaQuery, enabledFilters);

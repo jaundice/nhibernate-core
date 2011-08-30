@@ -23,6 +23,14 @@ namespace NHibernate.Criterion
 		private readonly string _propertyName;
 		private object[] _values;
 
+        /// <summary>
+        /// jd: used during deserialization of NhibClient
+        /// </summary>
+        internal InExpression()
+        {
+            
+        }
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InExpression"/> class.
 		/// </summary>

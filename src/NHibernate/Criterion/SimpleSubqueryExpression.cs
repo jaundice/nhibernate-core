@@ -14,6 +14,11 @@ namespace NHibernate.Criterion
 	{
 		private Object value;
 
+        internal SimpleSubqueryExpression()
+        {
+            //jd: used only in building from 
+        }
+
 		internal SimpleSubqueryExpression(Object value, String op, String quantifier, DetachedCriteria dc)
 			: base(op, quantifier, dc)
 		{

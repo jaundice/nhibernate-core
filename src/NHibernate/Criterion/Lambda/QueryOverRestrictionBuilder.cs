@@ -16,6 +16,11 @@ namespace NHibernate.Criterion.Lambda
 		public QueryOverRestrictionBuilder(QueryOver<TRoot,TSubType> root, IProjection projection)
 			: base(root, projection) { }
 
+        internal QueryOverRestrictionBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public QueryOverRestrictionBuilder<TRoot,TSubType> Not
 		{
 			get
@@ -32,6 +37,11 @@ namespace NHibernate.Criterion.Lambda
 
 		public IQueryOverRestrictionBuilder(IQueryOver<TRoot,TSubType> root, IProjection projection)
 			: base(root, projection) { }
+
+        internal IQueryOverRestrictionBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 		public IQueryOverRestrictionBuilder<TRoot,TSubType> Not
 		{
@@ -62,6 +72,11 @@ namespace NHibernate.Criterion.Lambda
 				this.lo = lo;
 			}
 
+            internal LambdaBetweenBuilder()
+            {
+                //jd: only used when building up from deserialized NHibernateClient objects
+            }
+
 			private TReturn Add(ICriterion criterion)
 			{
 				if (isNot)
@@ -89,7 +104,12 @@ namespace NHibernate.Criterion.Lambda
 			this.projection = projection;
 		}
 
-		private TReturn Add(ICriterion criterion)
+	    protected QueryOverRestrictionBuilderBase()
+	    {
+            //jd: only used when building up from deserialized NHibernateClient objects
+	    }
+
+	    private TReturn Add(ICriterion criterion)
 		{
 			if (isNot)
 				criterion = Restrictions.Not(criterion);

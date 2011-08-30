@@ -6,48 +6,54 @@ using NHibernate.SqlCommand;
 
 namespace NHibernate.Criterion
 {
-	/// <summary>
-	/// An <see cref="ICriterion"/> that negates another <see cref="ICriterion"/>.
-	/// </summary>
-	[Serializable]
-	public class NotExpression : AbstractCriterion
-	{
-		private ICriterion _criterion;
+    /// <summary>
+    /// An <see cref="ICriterion"/> that negates another <see cref="ICriterion"/>.
+    /// </summary>
+    [Serializable]
+    public class NotExpression : AbstractCriterion
+    {
+        private ICriterion _criterion;
 
-		/// <summary>
-		/// Initialize a new instance of the <see cref="NotExpression" /> class for an
-		/// <see cref="ICriterion"/>
-		/// </summary>
-		/// <param name="criterion">The <see cref="ICriterion"/> to negate.</param>
-		public NotExpression(ICriterion criterion)
-		{
-			_criterion = criterion;
-		}
+        /// <summary>
+        /// Initialize a new instance of the <see cref="NotExpression" /> class for an
+        /// <see cref="ICriterion"/>
+        /// </summary>
+        /// <param name="criterion">The <see cref="ICriterion"/> to negate.</param>
+        public NotExpression(ICriterion criterion)
+        {
+            _criterion = criterion;
+        }
 
-		public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
-		{
-			//TODO: set default capacity
-			SqlStringBuilder builder = new SqlStringBuilder();
-			builder.Add("not (");
-			builder.Add(_criterion.ToSqlString(criteria, criteriaQuery, enabledFilters));
-			builder.Add(")");
+        internal NotExpression()
+            : base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
-			return builder.ToSqlString();
-		}
+        public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
+        {
+            //TODO: set default capacity
+            SqlStringBuilder builder = new SqlStringBuilder();
+            builder.Add("not (");
+            builder.Add(_criterion.ToSqlString(criteria, criteriaQuery, enabledFilters));
+            builder.Add(")");
 
-		public override TypedValue[] GetTypedValues(ICriteria criteria, ICriteriaQuery criteriaQuery)
-		{
-			return _criterion.GetTypedValues(criteria, criteriaQuery);
-		}
+            return builder.ToSqlString();
+        }
 
-		public override string ToString()
-		{
-			return string.Format("not ({0})", _criterion.ToString());
-		}
+        public override TypedValue[] GetTypedValues(ICriteria criteria, ICriteriaQuery criteriaQuery)
+        {
+            return _criterion.GetTypedValues(criteria, criteriaQuery);
+        }
 
-		public override IProjection[] GetProjections()
-		{
-			return null;
-		}
-	}
+        public override string ToString()
+        {
+            return string.Format("not ({0})", _criterion.ToString());
+        }
+
+        public override IProjection[] GetProjections()
+        {
+            return null;
+        }
+    }
 }

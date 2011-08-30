@@ -6,6 +6,14 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public class ExistsSubqueryExpression : SubqueryExpression
 	{
+        /// <summary>
+        /// jd:used to deserialize from NHibernateClient
+        /// </summary>
+        internal ExistsSubqueryExpression():base()
+        {
+            
+        }
+
 		protected override SqlString ToLeftSqlString(ICriteria criteria, ICriteriaQuery outerQuery)
 		{
 			return SqlString.Empty;

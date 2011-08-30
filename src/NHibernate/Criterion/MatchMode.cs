@@ -36,6 +36,11 @@ namespace NHibernate.Criterion
 			_name = name;
 		}
 
+        internal MatchMode()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		#region System.Object Members
 
 		/// <summary>

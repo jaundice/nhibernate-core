@@ -21,6 +21,11 @@ namespace NHibernate.Criterion.Lambda
 		public QueryOverOrderBuilder(QueryOver<TRoot,TSubType> root, IProjection projection) : base(root, projection)
 		{}
 
+        internal QueryOverOrderBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 	}
 
 	public class IQueryOverOrderBuilder<TRoot,TSubType> : QueryOverOrderBuilderBase<IQueryOver<TRoot,TSubType>, TRoot, TSubType>
@@ -34,6 +39,11 @@ namespace NHibernate.Criterion.Lambda
 
 		public IQueryOverOrderBuilder(IQueryOver<TRoot,TSubType> root, IProjection projection) : base(root, projection)
 		{}
+
+        internal IQueryOverOrderBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 	}
 
@@ -76,7 +86,12 @@ namespace NHibernate.Criterion.Lambda
 					root.UnderlyingCriteria.AddOrder(ExpressionProcessor.ProcessOrder(path, orderDelegate));
 		}
 
-		public TReturn Asc
+	    protected internal QueryOverOrderBuilderBase()
+	    {
+            //jd: only used when building up from deserialized NHibernateClient objects
+	    }
+
+	    public TReturn Asc
 		{
 			get
 			{

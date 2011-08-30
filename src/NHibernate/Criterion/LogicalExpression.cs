@@ -12,8 +12,8 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public abstract class LogicalExpression : AbstractCriterion
 	{
-		private ICriterion _lhs;
-		private ICriterion _rhs;
+		internal ICriterion _lhs;
+		internal ICriterion _rhs;
 
 		/// <summary>
 		/// Initialize a new instance of the <see cref="LogicalExpression" /> class that
@@ -27,7 +27,12 @@ namespace NHibernate.Criterion
 			_rhs = rhs;
 		}
 
-		/// <summary>
+	    protected internal LogicalExpression()
+	    {
+	        //jd: only used when building up from from deserialized NHibernateClient files
+	    }
+
+	    /// <summary>
 		/// Gets the <see cref="ICriterion"/> that will be on the Left Hand Side of the Op.
 		/// </summary>
 		protected ICriterion LeftHandSide

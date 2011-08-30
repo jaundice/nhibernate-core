@@ -31,6 +31,11 @@ namespace NHibernate.Criterion
 			}
 		}
 
+        internal SQLCriterion()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
 		{
 			var parameters = _sql.GetParameters().ToList();

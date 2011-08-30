@@ -36,6 +36,11 @@ namespace NHibernate.Criterion
 			this.groupBy = groupBy;
 		}
 
+        internal SQLProjection():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public SqlString ToSqlString(ICriteria criteria, int loc, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
 		{
 			//SqlString result = new SqlString(criteriaQuery.GetSQLAlias(criteria));

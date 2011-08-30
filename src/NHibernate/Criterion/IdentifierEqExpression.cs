@@ -21,6 +21,11 @@ namespace NHibernate.Criterion
 			_projection = projection;
 		}
 
+        internal IdentifierEqExpression()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		private readonly IProjection _projection;
 
 		public IdentifierEqExpression(object value)

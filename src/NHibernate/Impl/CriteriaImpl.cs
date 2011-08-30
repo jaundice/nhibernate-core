@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Xml.Serialization;
 using NHibernate.Criterion;
 using NHibernate.Engine;
 using NHibernate.SqlCommand;
@@ -46,6 +48,14 @@ namespace NHibernate.Impl
 		// Projection Fields
 		private IProjection projection;
 		private ICriteria projectionCriteria;
+
+        /// <summary>
+        /// jd: used by deserializer for NHibernateClient
+        /// </summary>
+        internal CriteriaImpl()
+        {
+            
+        }
 
 		public CriteriaImpl(System.Type persistentClass, ISessionImplementor session)
 			: this(persistentClass.FullName, CriteriaSpecification.RootAlias, session)
@@ -376,6 +386,8 @@ namespace NHibernate.Impl
 			return this;
 		}
 
+
+
 		public ICriteria CreateCriteria(string associationPath)
 		{
 			return CreateCriteria(associationPath, JoinType.InnerJoin);
@@ -645,6 +657,14 @@ namespace NHibernate.Impl
 			private LockMode lockMode;
 			private readonly JoinType joinType;
 			private ICriterion withClause;
+
+            /// <summary>
+            /// jd: used to deserialize from NHibernateClient
+            /// </summary>
+            internal  Subcriteria()
+            {
+                
+            }
 
 			internal Subcriteria(CriteriaImpl root, ICriteria parent, string path, string alias, JoinType joinType, ICriterion withClause)
 			{
@@ -949,6 +969,14 @@ namespace NHibernate.Impl
 			private readonly ICriterion criterion;
 			private readonly ICriteria criteria;
 
+            /// <summary>
+            /// jd: used to deserialize from NHibernate.Client
+            /// </summary>
+            internal CriterionEntry()
+            {
+                
+            }
+
 			internal CriterionEntry(ICriterion criterion, ICriteria criteria)
 			{
 				this.criterion = criterion;
@@ -976,6 +1004,14 @@ namespace NHibernate.Impl
 		{
 			private readonly Order order;
 			private readonly ICriteria criteria;
+
+            /// <summary>
+            /// jd: used to deserialize from NHibernateClient
+            /// </summary>
+            internal OrderEntry()
+            {
+                
+            }
 
 			internal OrderEntry(Order order, ICriteria criteria)
 			{

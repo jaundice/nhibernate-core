@@ -8,16 +8,22 @@ namespace Iesi.Collections
 	/// Implements a <c>Set</c> based on a hash table.  This will give the best lookup, add, and remove
 	/// performance for very large data-sets, but iteration will occur in no particular order.
 	/// </summary>
+#if!SILVERLIGHT
 	[Serializable]
-	public class HashedSet : DictionarySet
+#endif
+    public class HashedSet : DictionarySet
 	{
 		/// <summary>
 		/// Creates a new set instance based on a hash table.
 		/// </summary>
 		public HashedSet()
 		{
-			InternalDictionary = new Hashtable();
-		}
+#if!SILVERLIGHT
+            InternalDictionary = new Hashtable();
+#else
+            InternalDictionary =  new System.Collections.Generic.Dictionary<object, object>();
+#endif
+        }
 
 		/// <summary>
 		/// Creates a new set instance based on a hash table and

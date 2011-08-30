@@ -57,6 +57,11 @@ namespace NHibernate.Criterion
 		{
 		}
 
+        internal LikeExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		#region ICriterion Members
 
 		public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)

@@ -15,6 +15,11 @@ namespace NHibernate.Criterion.Lambda
 		public QueryOverSubqueryBuilder(QueryOver<TRoot,TSubType> root)
 			: base(root) { }
 
+        internal  QueryOverSubqueryBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 	}
 
 	public class IQueryOverSubqueryBuilder<TRoot,TSubType> : QueryOverSubqueryBuilderBase<IQueryOver<TRoot,TSubType>, TRoot, TSubType, IQueryOverSubqueryPropertyBuilder<TRoot,TSubType>>
@@ -22,6 +27,11 @@ namespace NHibernate.Criterion.Lambda
 
 		public IQueryOverSubqueryBuilder(IQueryOver<TRoot,TSubType> root)
 			: base(root) { }
+
+        internal IQueryOverSubqueryBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 	}
 
@@ -37,7 +47,12 @@ namespace NHibernate.Criterion.Lambda
 			this.root = root;
 		}
 
-		/// <summary>
+	    protected QueryOverSubqueryBuilderBase()
+	    {
+	        //jd: only used when building up from deserialized NHibernateClient objects
+	    }
+
+	    /// <summary>
 		/// Add an Exists subquery criterion
 		/// </summary>
 		public TReturn WhereExists<U>(QueryOver<U> detachedQuery)

@@ -9,6 +9,11 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public class EqPropertyExpression : PropertyExpression
 	{
+        internal EqPropertyExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="EqPropertyExpression"/> class.
 		/// </summary>

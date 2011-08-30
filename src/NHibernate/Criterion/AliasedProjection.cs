@@ -13,6 +13,11 @@ namespace NHibernate.Criterion
 		private readonly IProjection projection;
 		private readonly string alias;
 
+        internal AliasedProjection ()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		protected internal AliasedProjection(IProjection projection, string alias)
 		{
 			this.projection = projection;

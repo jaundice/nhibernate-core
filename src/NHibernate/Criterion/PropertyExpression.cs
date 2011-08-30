@@ -14,10 +14,10 @@ namespace NHibernate.Criterion
 	public abstract class PropertyExpression : AbstractCriterion
 	{
 		private static readonly TypedValue[] NoTypedValues = new TypedValue[0];
-		private readonly string _lhsPropertyName;
-		private readonly string _rhsPropertyName;
-		private readonly IProjection _lhsProjection;
-		private readonly IProjection _rhsProjection;
+		internal readonly string _lhsPropertyName;
+		internal readonly string _rhsPropertyName;
+		internal readonly IProjection _lhsProjection;
+		internal readonly IProjection _rhsProjection;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PropertyExpression"/> class.
@@ -63,7 +63,12 @@ namespace NHibernate.Criterion
 			this._rhsProjection = rhsProjection;
 		}
 
-		/// <summary>
+	    protected internal PropertyExpression()
+	    {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
+	    /// <summary>
 		/// Get the Sql operator to use for the property expression.
 		/// </summary>
 		protected abstract string Op { get; }

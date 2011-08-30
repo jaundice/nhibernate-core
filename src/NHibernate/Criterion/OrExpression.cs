@@ -19,6 +19,11 @@ namespace NHibernate.Criterion
 		{
 		}
 
+        internal OrExpression()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		/// <summary>
 		/// Get the Sql operator to put between the two <see cref="Expression"/>s.
 		/// </summary>

@@ -11,6 +11,11 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public class AvgProjection : AggregateProjection
 	{
+        internal AvgProjection():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public AvgProjection(IProjection projection) : base("avg", projection) {}
 		public AvgProjection(String propertyName) : base("avg", propertyName) {}
 

@@ -1,5 +1,5 @@
-using System;
-using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Engine;
 using NHibernate.SqlCommand;
@@ -25,6 +25,12 @@ namespace NHibernate.Criterion
 			this.value = value;
 			typedValue = new TypedValue(type, this.value, EntityMode.Poco);
 		}
+
+        internal ConstantProjection():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 
 		public override bool IsAggregate
 		{

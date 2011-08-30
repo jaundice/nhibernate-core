@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using NHibernate.Criterion.Lambda;
 using NHibernate.Engine;
 using NHibernate.Impl;
@@ -11,13 +12,14 @@ using NHibernate.Transform;
 
 namespace NHibernate.Criterion
 {
-
 	[Serializable]
+    [DataContract(IsReference = true)]
 	public abstract class QueryOver
 	{
-
+        [XmlElement]
 		protected ICriteria criteria;
-		protected CriteriaImpl impl;
+        [XmlElement]
+		public CriteriaImpl impl;
 
 		protected QueryOver() { }
 
@@ -59,6 +61,7 @@ namespace NHibernate.Criterion
 	}
 
 	[Serializable]
+    [DataContract(IsReference = true)]
 	public abstract class QueryOver<TRoot> : QueryOver, IQueryOver<TRoot>
 	{
 
@@ -276,6 +279,7 @@ namespace NHibernate.Criterion
 	/// Implementation of the <see cref="IQueryOver&lt;TRoot, TSubType&gt;"/> interface
 	/// </summary>
 	[Serializable]
+    [DataContract(IsReference = true)]
 	public class QueryOver<TRoot,TSubType> : QueryOver<TRoot>, IQueryOver<TRoot,TSubType>
 	{
 

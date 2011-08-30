@@ -21,6 +21,11 @@ namespace NHibernate.Criterion.Lambda
 			this.propertyName = propertyName;
 		}
 
+        internal LambdaNaturalIdentifierBuilder()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public NaturalIdentifier Is(object value)
 		{
 			return naturalIdentifier.Set(propertyName, value);

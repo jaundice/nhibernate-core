@@ -13,6 +13,11 @@ namespace NHibernate.Criterion.Lambda
 	{
 		public QueryOverJoinBuilder(QueryOver<TRoot,TSubType> root, JoinType joinType) : base(root, joinType) { }
 
+        internal QueryOverJoinBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public QueryOver<TRoot,U> JoinQueryOver<U>(Expression<Func<TSubType, U>> path)
 		{
 			return root.JoinQueryOver<U>(path, joinType);
@@ -118,6 +123,11 @@ namespace NHibernate.Criterion.Lambda
 	public class IQueryOverJoinBuilder<TRoot,TSubType> : QueryOverJoinBuilderBase<IQueryOver<TRoot,TSubType>, TRoot, TSubType>
 	{
 		public IQueryOverJoinBuilder(IQueryOver<TRoot,TSubType> root, JoinType joinType) : base(root, joinType) { }
+
+        internal IQueryOverJoinBuilder():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 		public IQueryOver<TRoot,U> JoinQueryOver<U>(Expression<Func<TSubType, U>> path)
 		{
@@ -233,7 +243,12 @@ namespace NHibernate.Criterion.Lambda
 			this.joinType = joinType;
 		}
 
-		public TReturn JoinAlias(Expression<Func<TSubType, object>> path, Expression<Func<object>> alias)
+	    protected internal QueryOverJoinBuilderBase()
+	    {
+            //jd: only used when building up from deserialized NHibernateClient objects
+	    }
+
+	    public TReturn JoinAlias(Expression<Func<TSubType, object>> path, Expression<Func<object>> alias)
 		{
 			return (TReturn)root.JoinAlias(path, alias, joinType);
 		}

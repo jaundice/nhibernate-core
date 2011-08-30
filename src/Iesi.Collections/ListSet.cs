@@ -1,8 +1,9 @@
 /* Copyright © 2002-2004 by Aidant Systems, Inc., and by Jason Smith. */
 using System;
 using System.Collections;
+#if !SILVERLIGHT
 using System.Collections.Specialized;
-
+#endif
 namespace Iesi.Collections
 {
 	/// <summary>
@@ -13,15 +14,22 @@ namespace Iesi.Collections
 	/// However, element order is not guaranteed to be maintained by the various <c>Set</c>
 	/// mathematical operators.  
 	/// </summary>
+#if !SILVERLIGHT
 	[Serializable]
-	public class ListSet : DictionarySet
+#endif
+    public class ListSet : DictionarySet
 	{
 		/// <summary>
 		/// Creates a new set instance based on a list.
 		/// </summary>
 		public ListSet()
 		{
-			InternalDictionary = new ListDictionary();
+		    InternalDictionary =
+#if !SILVERLIGHT
+                new ListDictionary();
+#else
+		        new System.Collections.Generic.Dictionary<object, object>();
+#endif
 		}
 
 		/// <summary>

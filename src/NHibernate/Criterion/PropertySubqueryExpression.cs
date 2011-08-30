@@ -18,6 +18,11 @@ namespace NHibernate.Criterion
 			this.propertyName = propertyName;
 		}
 
+        internal PropertySubqueryExpression()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		protected override SqlString ToLeftSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery)
 		{
 			return new SqlString(criteriaQuery.GetColumn(criteria, propertyName));

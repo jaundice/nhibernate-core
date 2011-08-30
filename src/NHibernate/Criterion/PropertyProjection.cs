@@ -26,7 +26,12 @@ namespace NHibernate.Criterion
 		{
 		}
 
-		public string PropertyName
+	    protected internal PropertyProjection()
+	    {
+            //jd: only used when building up from deserialized NHibernateClient objects
+	    }
+
+	    public string PropertyName
 		{
 			get { return propertyName; }
 		}

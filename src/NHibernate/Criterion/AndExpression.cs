@@ -9,6 +9,11 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public class AndExpression : LogicalExpression
 	{
+        internal AndExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		/// <summary>
 		/// Get the Sql operator to put between the two <see cref="ICriterion"/>s.
 		/// </summary>

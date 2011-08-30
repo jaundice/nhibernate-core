@@ -21,6 +21,11 @@ namespace NHibernate.Criterion
 			this.criterion = criterion;
 		}
 
+        internal ConditionalProjection():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public override bool IsAggregate
 		{
 			get

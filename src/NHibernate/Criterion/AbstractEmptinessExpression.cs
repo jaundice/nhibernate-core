@@ -12,6 +12,11 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public abstract class AbstractEmptinessExpression : AbstractCriterion
 	{
+        protected internal AbstractEmptinessExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		private readonly TypedValue[] NO_VALUES = new TypedValue[0];
 		private readonly string propertyName;
 

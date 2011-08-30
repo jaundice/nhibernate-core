@@ -18,6 +18,11 @@ namespace NHibernate.Criterion
 		private readonly IType type;
 		private readonly IProjection projection;
 
+        internal CastProjection():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		public CastProjection(IType type, IProjection projection)
 		{
 			this.type = type;

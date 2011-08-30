@@ -1,5 +1,5 @@
-using System;
-using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Dialect;
 using NHibernate.Engine;
@@ -59,7 +59,13 @@ namespace NHibernate.Criterion
 		{
 		}
 
-		public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
+        internal InsensitiveLikeExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
+		public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery,
+		                                      IDictionary<string, IFilter> enabledFilters)
 		{
 			//TODO: add default capacity
 			SqlStringBuilder sqlBuilder = new SqlStringBuilder();
@@ -97,9 +103,9 @@ namespace NHibernate.Criterion
 			if (projection != null)
 			{
 				typedValues.AddRange(projection.GetTypedValues(criteria, criteriaQuery));
-			}
+		}
 			typedValues.Add(GetParameterTypedValue(criteria, criteriaQuery));
-			
+
 			return typedValues.ToArray();
 		}
 
@@ -115,7 +121,7 @@ namespace NHibernate.Criterion
 
 		public override IProjection[] GetProjections()
 		{
-			if (projection != null)
+			if(projection != null)
 			{
 				return new IProjection[] { projection };
 			}

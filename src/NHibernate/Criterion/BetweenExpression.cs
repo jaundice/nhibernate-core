@@ -32,6 +32,11 @@ namespace NHibernate.Criterion
 			this._hi = hi;
 		}
 
+        internal BetweenExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		/// <summary>
 		/// Initialize a new instance of the <see cref="BetweenExpression" /> class for
 		/// the named Property.

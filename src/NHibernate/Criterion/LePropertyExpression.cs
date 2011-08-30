@@ -47,6 +47,11 @@ namespace NHibernate.Criterion
 		{
 		}
 
+        internal LePropertyExpression()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		/// <summary>
 		/// Get the Sql operator to use for the <see cref="LePropertyExpression"/>.
 		/// </summary>

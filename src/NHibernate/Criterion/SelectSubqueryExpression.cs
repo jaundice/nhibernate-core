@@ -10,6 +10,11 @@ namespace NHibernate.Criterion
 	[Serializable]
 	public class SelectSubqueryExpression : SubqueryExpression
 	{
+        internal SelectSubqueryExpression():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
+
 		internal SelectSubqueryExpression(DetachedCriteria dc)
 			: base(null, null, dc)
 		{

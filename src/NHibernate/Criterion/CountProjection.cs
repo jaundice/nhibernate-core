@@ -16,6 +16,10 @@ namespace NHibernate.Criterion
 
 		protected internal CountProjection(String prop) : base("count", prop) {}
 		protected internal CountProjection(IProjection projection) : base("count", projection) {}
+        internal CountProjection():base()
+        {
+            //jd: only used when building up from deserialized NHibernateClient objects
+        }
 
 		public override IType[] GetTypes(ICriteria criteria, ICriteriaQuery criteriaQuery)
 		{
