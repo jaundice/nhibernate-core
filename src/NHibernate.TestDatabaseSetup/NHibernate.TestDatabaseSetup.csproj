@@ -33,6 +33,9 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(MSBuildProjectDirectory)\..\..\Tools\nunit\nunit-x86.exe</StartProgram>
+    <StartArguments>NHibernate.TestDatabaseSetup.dll</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,6 +81,10 @@
     <None Include="TestDatabaseSetup.build" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NHibernate.Test\NHibernate.Test.csproj">
+      <Project>{7AEE5B37-C552-4E59-9B6F-88755BCB5070}</Project>
+      <Name>NHibernate.Test</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NHibernate\NHibernate.csproj">
       <Project>{5909BFE7-93CF-4E5F-BE22-6293368AF01D}</Project>
       <Name>NHibernate</Name>
