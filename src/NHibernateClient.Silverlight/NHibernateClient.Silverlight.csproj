@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="AssemblyInfo.Silverlight.cs" />
     <Compile Include="Criterion\AbstractCriterion.cs" />
     <Compile Include="Criterion\AbstractEmptinessExpression.cs" />
     <Compile Include="Criterion\AggregateProjection.cs" />
