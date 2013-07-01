@@ -84,6 +84,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateClient", "NHibern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iesi.Collections.Portable", "Iesi.Collections.Portable\Iesi.Collections.Portable.csproj", "{0B2AA51E-8C45-4E0F-8879-79628B40A47C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5A38218F-1046-4D61-A6AE-FC2AA8CB2A03}"
+	ProjectSection(SolutionItems) = preProject
+		NHibernate.Custom.1.0.0.nuspec = NHibernate.Custom.1.0.0.nuspec
+		NHibernate.IesiCollections.nuspec = NHibernate.IesiCollections.nuspec
+		NHibernate.IesiCollections.Portable.nuspec = NHibernate.IesiCollections.Portable.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
