@@ -12,11 +12,12 @@
     <RootNamespace>Iesi.Collections</RootNamespace>
     <AssemblyName>Iesi.Collections</AssemblyName>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <!-- This property group is only here to support building this project using the 
        MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
@@ -34,6 +35,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,6 +46,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -57,9 +60,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Iesi.Collections\AssemblyInfo.cs">
-      <Link>AssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="..\Iesi.Collections\DictionarySet.cs">
       <Link>DictionarySet.cs</Link>
     </Compile>
@@ -71,9 +71,6 @@
     </Compile>
     <Compile Include="..\Iesi.Collections\Generic\ImmutableSet.cs">
       <Link>Generic\ImmutableSet.cs</Link>
-    </Compile>
-    <Compile Include="..\Iesi.Collections\Generic\ISet.cs">
-      <Link>Generic\ISet.cs</Link>
     </Compile>
     <Compile Include="..\Iesi.Collections\Generic\OrderedSet.cs">
       <Link>Generic\OrderedSet.cs</Link>
@@ -96,9 +93,6 @@
     <Compile Include="..\Iesi.Collections\ImmutableSet.cs">
       <Link>ImmutableSet.cs</Link>
     </Compile>
-    <Compile Include="..\Iesi.Collections\ISet.cs">
-      <Link>ISet.cs</Link>
-    </Compile>
     <Compile Include="..\Iesi.Collections\ListSet.cs">
       <Link>ListSet.cs</Link>
     </Compile>
@@ -112,6 +106,7 @@
       <Link>SynchronizedSet.cs</Link>
     </Compile>
     <Compile Include="ICloneable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Iesi.Collections\Iesi.Collections.license.txt">
@@ -121,13 +116,17 @@
       <Link>NamespaceSummary.xml</Link>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="..\NHibernate.snk">
       <Link>NHibernate.snk</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iesi.Collections.Portable\Iesi.Collections.Portable.csproj">
+      <Project>{0b2aa51e-8c45-4e0f-8879-79628b40a47c}</Project>
+      <Name>Iesi.Collections.Portable</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

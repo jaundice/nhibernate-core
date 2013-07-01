@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using Iesi.Collections.Portable;
 
-namespace Iesi.Collections.Generic
+namespace Iesi.Collections
 {
     /// <summary>
     /// <p>A collection that contains no duplicate elements.  This interface models the mathematical
@@ -43,17 +43,8 @@ namespace Iesi.Collections.Generic
     ///		</item>
     /// </list>
     /// </summary>
-    public interface ISet<T> : ICollection<T>, IEnumerable<T>, IEnumerable, ICloneable
+    public interface ISet : ICollection, ICloneable
     {
-        // Clear is declared in ICollection<T>, but not in ICollection
-        // void Clear();
-
-        // Remove is declared in ICollection<T>, but not in ICollection
-        // bool Remove(T o);
-
-        // Contains is declared in ICollection<T>, but not in ICollection
-        // bool Contains(T o);
-
         /// <summary>
         /// Returns <see langword="true" /> if this set contains no elements.
         /// </summary>
@@ -68,7 +59,7 @@ namespace Iesi.Collections.Generic
         /// <param name="a">A collection of elements.</param>
         /// <returns>A new <c>Set</c> containing the union of this <c>Set</c> with the specified collection.
         /// Neither of the input objects is modified by the union.</returns>
-        ISet<T> Union(ISet<T> a);
+        ISet Union(ISet a);
 
         /// <summary>
         /// Performs an "intersection" of the two sets, where only the elements
@@ -78,7 +69,7 @@ namespace Iesi.Collections.Generic
         /// </summary>
         /// <param name="a">A set of elements.</param>
         /// <returns>The intersection of this set with <c>a</c>.</returns>
-        ISet<T> Intersect(ISet<T> a);
+        ISet Intersect(ISet a);
 
         /// <summary>
         /// Performs a "minus" of set <c>b</c> from set <c>a</c>.  This returns a set of all
@@ -88,7 +79,7 @@ namespace Iesi.Collections.Generic
         /// </summary>
         /// <param name="a">A set of elements.</param>
         /// <returns>A set containing the elements from this set with the elements in <c>a</c> removed.</returns>
-        ISet<T> Minus(ISet<T> a);
+        ISet Minus(ISet a);
 
         /// <summary>
         /// Performs an "exclusive-or" of the two sets, keeping only the elements that
@@ -98,35 +89,49 @@ namespace Iesi.Collections.Generic
         /// </summary>
         /// <param name="a">A set of elements.</param>
         /// <returns>A set containing the result of <c>a ^ b</c>.</returns>
-        ISet<T> ExclusiveOr(ISet<T> a);
+        ISet ExclusiveOr(ISet a);
+
+        /// <summary>
+        /// Returns <see langword="true" /> if this set contains the specified element.
+        /// </summary>
+        /// <param name="o">The element to look for.</param>
+        /// <returns><see langword="true" /> if this set contains the specified element, <see langword="false" /> otherwise.</returns>
+        bool Contains(object o);
 
         /// <summary>
         /// Returns <see langword="true" /> if the set contains all the elements in the specified collection.
         /// </summary>
         /// <param name="c">A collection of objects.</param>
         /// <returns><see langword="true" /> if the set contains all the elements in the specified collection, <see langword="false" /> otherwise.</returns>
-        bool ContainsAll(ICollection<T> c);
+        bool ContainsAll(ICollection c);
 
         /// <summary>
         /// Adds the specified element to this set if it is not already present.
         /// </summary>
         /// <param name="o">The object to add to the set.</param>
         /// <returns><see langword="true" /> is the object was added, <see langword="false" /> if it was already present.</returns>
-        new bool Add(T o);
+        bool Add(object o);
 
         /// <summary>
         /// Adds all the elements in the specified collection to the set if they are not already present.
         /// </summary>
         /// <param name="c">A collection of objects to add to the set.</param>
         /// <returns><see langword="true" /> is the set changed as a result of this operation, <see langword="false" /> if not.</returns>
-        bool AddAll(ICollection<T> c);
+        bool AddAll(ICollection c);
+
+        /// <summary>
+        /// Removes the specified element from the set.
+        /// </summary>
+        /// <param name="o">The element to be removed.</param>
+        /// <returns><see langword="true" /> if the set contained the specified element, <see langword="false" /> otherwise.</returns>
+        bool Remove(object o);
 
         /// <summary>
         /// Remove all the specified elements from this set, if they exist in this set.
         /// </summary>
         /// <param name="c">A collection of elements to remove.</param>
         /// <returns><see langword="true" /> if the set was modified as a result of this operation.</returns>
-        bool RemoveAll(ICollection<T> c);
+        bool RemoveAll(ICollection c);
 
 
         /// <summary>
@@ -134,6 +139,11 @@ namespace Iesi.Collections.Generic
         /// </summary>
         /// <param name="c">Collection that defines the set of elements to be retained.</param>
         /// <returns><see langword="true" /> if this set changed as a result of this operation.</returns>
-        bool RetainAll(ICollection<T> c);
+        bool RetainAll(ICollection c);
+
+        /// <summary>
+        /// Removes all objects from the set.
+        /// </summary>
+        void Clear();
     }
 }

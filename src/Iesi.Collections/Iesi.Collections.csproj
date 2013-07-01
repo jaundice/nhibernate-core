@@ -15,7 +15,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -44,6 +44,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -55,6 +56,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -73,7 +75,6 @@
     <Compile Include="Generic\DictionarySet.cs" />
     <Compile Include="Generic\HashedSet.cs" />
     <Compile Include="Generic\ImmutableSet.cs" />
-    <Compile Include="Generic\ISet.cs" />
     <Compile Include="Generic\OrderedSet.cs" />
     <Compile Include="Generic\Set.cs" />
     <Compile Include="Generic\SortedSet.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="HashedSet.cs" />
     <Compile Include="HybridSet.cs" />
     <Compile Include="ImmutableSet.cs" />
-    <Compile Include="ISet.cs" />
     <Compile Include="ListSet.cs" />
     <Compile Include="Set.cs" />
     <Compile Include="SortedSet.cs" />
@@ -116,6 +116,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iesi.Collections.Portable\Iesi.Collections.Portable.csproj">
+      <Project>{0b2aa51e-8c45-4e0f-8879-79628b40a47c}</Project>
+      <Name>Iesi.Collections.Portable</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

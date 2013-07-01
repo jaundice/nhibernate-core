@@ -16,13 +16,17 @@
 		Supported versions of .NET Framework, separated by spaces.
 		Used by *-all-frameworks targets.
 	-->
-	<property name="supported.frameworks" value="net-3.5" />
+	<property name="supported.frameworks" value="net-4.0 net-4.5 Profile24 sl5" />
 
 	<fileset id="buildfiles.all" basedir="src">
 		<!-- Files have to be in dependency order -->
+		<include name="Iesi.Collections.Portable/Iesi.Collections.Portable.build" />			
+		<include name="Iesi.Collections.Silverlight/Iesi.Collections.Silverlight.build" />		
 		<include name="Iesi.Collections/Iesi.Collections.build" />
 		<include name="Iesi.Collections.Test/Iesi.Collections.Test.build" />
 		<include name="NHibernate/NHibernate.build" />
+		<include name="NHibernateClient/NHibernateClient.build" />
+		<include name="NHibernateClient.Silverlight/NHibernateClient.Silverlight.build" />
 		<include name="NHibernate.DomainModel/NHibernate.DomainModel.build" />
 		<include name="NHibernate.Test/NHibernate.Test.build" />
 		<include name="NHibernate.Test.VisualBasic/NHibernate.Test.VisualBasic.build" />
@@ -100,7 +104,7 @@
 	
 	<target name="check-framework-version">
 			<echo>Running with ${framework::get-target-framework()}</echo>
-			<fail message="ERROR: NHibernate requires .Net 3.5." if="${framework::get-target-framework()!='net-3.5'}"/>
+			<fail message="ERROR: NHibernate requires .Net 4.5." if="${framework::get-target-framework()!='net-4.0'}"/>
 	</target>
 
 	<target name="test-report" if="${nunit2report.installed}">
