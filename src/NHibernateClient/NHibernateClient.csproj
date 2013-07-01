@@ -47,9 +47,6 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\NHibernateClient.Silverlight\AssemblyInfo.cs">
-      <Link>AssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="..\NHibernateClient.Silverlight\Criterion\AbstractCriterion.cs">
       <Link>Criterion\AbstractCriterion.cs</Link>
     </Compile>
@@ -365,6 +362,7 @@
     <Compile Include="..\NHibernateClient.Silverlight\Util\TypeNameParser.cs">
       <Link>Util\TypeNameParser.cs</Link>
     </Compile>
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Conversion\Converter.cs" />
   </ItemGroup>
   <ItemGroup>

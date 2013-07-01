@@ -105,8 +105,8 @@
     <Compile Include="..\Iesi.Collections\SynchronizedSet.cs">
       <Link>SynchronizedSet.cs</Link>
     </Compile>
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ICloneable.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Iesi.Collections\Iesi.Collections.license.txt">
@@ -116,7 +116,9 @@
       <Link>NamespaceSummary.xml</Link>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\NHibernate.snk">
       <Link>NHibernate.snk</Link>
