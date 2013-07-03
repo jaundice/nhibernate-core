@@ -362,6 +362,7 @@
     <Compile Include="..\NHibernateClient.Silverlight\Util\TypeNameParser.cs">
       <Link>Util\TypeNameParser.cs</Link>
     </Compile>
+    <Compile Include="Analysis\CriteriaEx.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Conversion\Converter.cs" />
   </ItemGroup>
