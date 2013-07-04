@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NHibernateClient.Criterion;
 using NHibernateClient.Impl;
 
@@ -81,6 +82,34 @@ namespace NHibernateClient.Analysis
             return inexpr._propertyName;
         }
 
+        public static IProjection GetProjection(this AggregateProjection agg)
+        {
+            return agg.projection;
+        }
+
+        public static string GetPropertyName(this AggregateProjection agg)
+        {
+            return agg.propertyName;
+        }
+
+        public static string GetPropertyName(this IProjection proj)
+        {
+            var projection = proj as IPropertyProjection;
+            if (projection != null)
+                return projection.PropertyName;
+
+
+            var aggregateProjection = proj as AggregateProjection;
+            if (aggregateProjection != null)
+                return aggregateProjection.propertyName;
+
+            var groupedProjection = proj as GroupedProjection;
+            if (groupedProjection != null)
+                return groupedProjection.projection.GetPropertyName();
+
+            throw new NotImplementedException();
+
+        }
     }
 
     public class PropertySubQueryDescriptor : SubQueryDescriptor
