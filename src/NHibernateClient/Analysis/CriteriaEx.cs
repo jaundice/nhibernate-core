@@ -50,6 +50,12 @@ namespace NHibernateClient.Analysis
                        Value = expr.value
                    };
         }
+
+        public static string GetOp(this SimpleExpression expr)
+        {
+            return expr.op;
+        }
+
     }
 
     public class PropertySubQueryDescriptor : SubQueryDescriptor
@@ -89,4 +95,5 @@ namespace NHibernateClient.Analysis
 
         public string Quantifier { get; set; }
     }
+
 }
