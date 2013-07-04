@@ -61,6 +61,26 @@ namespace NHibernateClient.Analysis
             return not._criterion;
         }
 
+        public static string GetPropertyName(this PropertySubqueryExpression criterion)
+        {
+            return criterion.propertyName;
+        }
+
+        public static string GetPropertyName(this SimpleExpression simple)
+        {
+            return simple.propertyName;
+        }
+
+        public static string GetPropertyName(this BetweenExpression between)
+        {
+            return between._propertyName;
+        }
+
+        public static string GetPropertyName(this InExpression inexpr)
+        {
+            return inexpr._propertyName;
+        }
+
     }
 
     public class PropertySubQueryDescriptor : SubQueryDescriptor
