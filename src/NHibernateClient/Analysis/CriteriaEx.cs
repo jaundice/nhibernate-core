@@ -56,12 +56,17 @@ namespace NHibernateClient.Analysis
             return expr.op;
         }
 
+        public static ICriterion GetNotInnerCriterion(this NotExpression not)
+        {
+            return not._criterion;
+        }
+
     }
 
     public class PropertySubQueryDescriptor : SubQueryDescriptor
     {
         public PropertySubQueryDescriptor(SubQueryDescriptor sqdBase)
-            : base(sqdBase) {}
+            : base(sqdBase) { }
 
         public string PropertyName { get; set; }
     }
@@ -70,14 +75,14 @@ namespace NHibernateClient.Analysis
     public class SimpleSubQueryDescriptor : SubQueryDescriptor
     {
         public SimpleSubQueryDescriptor(SubQueryDescriptor sqdBase)
-            : base(sqdBase) {}
+            : base(sqdBase) { }
 
         public object Value { get; set; }
     }
 
     public class SubQueryDescriptor
     {
-        public SubQueryDescriptor() {}
+        public SubQueryDescriptor() { }
 
         public SubQueryDescriptor(SubQueryDescriptor sqdBase)
         {
